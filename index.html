@@ -15,7 +15,7 @@
   --r:16px;
 }
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
 body{font-family:'Manrope',system-ui,sans-serif;background:var(--ink);color:var(--txt);line-height:1.6;font-size:16px}
 h1,h2,h3{font-family:'Space Grotesk',sans-serif;line-height:1.15;letter-spacing:-.01em}
 .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
@@ -76,13 +76,18 @@ h1 em{font-style:normal;color:var(--acc)}
 .chip{background:rgba(94,230,168,.1);border:1px solid rgba(94,230,168,.35);color:var(--ok);font-size:12px;font-weight:700;padding:5px 12px;border-radius:100px}
 
 /* TRUST */
-.trust{padding:38px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--ink2)}
-.trust p{text-align:center;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin-bottom:20px;font-weight:700}
-.trust-row{display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
-.lg{display:flex;align-items:center;justify-content:center;min-width:132px;height:52px;padding:0 20px;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.03);filter:grayscale(1);opacity:.85;transition:.2s}
-.lg:hover{filter:none;opacity:1;border-color:var(--line2)}
-.lg img{max-height:26px;max-width:110px;display:block}
-.lg .alt{font-family:'Space Grotesk','Manrope',system-ui,sans-serif;font-weight:700;font-size:15px;color:var(--mut);letter-spacing:.04em}
+.trust{padding:44px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--ink2);overflow:hidden}
+.trust p{text-align:center;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin-bottom:24px;font-weight:700}
+.trust-mask{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+.trust-row{display:flex;gap:14px;width:max-content;animation:mq 34s linear infinite}
+.trust-mask:hover .trust-row{animation-play-state:paused}
+.trust-set{display:flex;gap:14px}
+@keyframes mq{to{transform:translateX(calc(-50% - 7px))}}
+.lg{display:flex;align-items:center;justify-content:center;min-width:150px;height:58px;padding:0 26px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.03);filter:grayscale(1);opacity:.85;transition:.25s;white-space:nowrap}
+.lg:hover{filter:none;opacity:1;border-color:rgba(83,200,255,.4);background:rgba(83,200,255,.05)}
+.lg img{max-height:28px;max-width:118px;display:block}
+.lg .alt{font-family:'Space Grotesk','Manrope',system-ui,sans-serif;font-weight:700;font-size:15px;color:#B9C7E9;letter-spacing:.08em}
+@media(prefers-reduced-motion:reduce){.trust-row{animation:none;width:auto;flex-wrap:wrap;justify-content:center}.trust-set{flex-wrap:wrap;justify-content:center}.trust-mask{-webkit-mask-image:none;mask-image:none}}
 
 /* POSITION STRIP */
 .strip{padding:56px 0;text-align:center}
@@ -205,6 +210,33 @@ details p{padding:0 24px 20px;color:var(--mut);font-size:14.5px}
 
 footer{border-top:1px solid var(--line);padding:28px 0;font-size:13px;color:var(--dim)}
 .foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.hero .badge{animation:fadeUp .6s .05s ease backwards}
+.hero h1{animation:fadeUp .6s .15s ease backwards}
+.hero p.lead{animation:fadeUp .6s .25s ease backwards}
+.hero-btns{animation:fadeUp .6s .35s ease backwards}
+.hero-note{animation:fadeUp .6s .45s ease backwards}
+.hero-stats{animation:fadeUp .7s .55s ease backwards}
+.mock{animation:fadeUp .8s .35s ease backwards}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.mock-h .live{animation:pulse 2.4s ease-in-out infinite}
+@keyframes dot{0%,100%{box-shadow:0 0 6px var(--ok)}50%{box-shadow:0 0 14px var(--ok)}}
+.badge .dot{animation:dot 2.2s ease-in-out infinite}
+/* reveal on scroll */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.22,.61,.36,1),transform .6s cubic-bezier(.22,.61,.36,1)}
+.rv.on{opacity:1;transform:none}
+/* hover lift */
+.card,.out,.step,.fmt,.stat{transition:transform .25s ease,border-color .25s ease,background .25s ease}
+.card:hover,.out:hover,.step:hover{transform:translateY(-4px);border-color:var(--line2)}
+.fmt:hover{transform:translateY(-4px)}
+.fmt.hl:hover{border-color:rgba(83,200,255,.65)}
+@media(max-width:560px){.flow .arr{display:none}.flow .f{width:100%}}
+@media(prefers-reduced-motion:reduce){
+  .hero .badge,.hero h1,.hero p.lead,.hero-btns,.hero-note,.hero-stats,.mock,.mock-h .live,.badge .dot{animation:none}
+  .rv{opacity:1;transform:none;transition:none}
+}
 </style>
 </head>
 <body>
@@ -231,7 +263,7 @@ footer{border-top:1px solid var(--line);padding:28px 0;font-size:13px;color:var(
       </div>
       <div class="hero-note">30 минут. Разберём вашу ситуацию и честно скажем, есть ли у вас деньги для ИИ.</div>
       <div class="hero-stats">
-        <div class="stat"><b>Миллионы ₽</b><span>экономии от десятков ИИ-продуктов, внедрённых в «Этажах»</span></div>
+        <div class="stat"><b>Миллионы&nbsp;₽</b><span>экономии от десятков ИИ-продуктов, внедрённых в «Этажах»</span></div>
         <div class="stat"><b>100+</b><span>городов, где работает наш <a href="https://colver.pro" target="_blank" style="color:var(--acc)">Colver</a></span></div>
         <div class="stat"><b>10-й день</b><span>работающий прототип на ваших данных</span></div>
       </div>
@@ -265,17 +297,30 @@ footer{border-top:1px solid var(--line);padding:28px 0;font-size:13px;color:var(
 <div class="trust">
   <div class="wrap">
     <p>Нашей команде доверяют</p>
-    <div class="trust-row">
-      <!-- Положи PNG/SVG логотипов в папку logo/ рядом с файлом — подхватятся сами. Пока файла нет, показывается текстовая плашка. -->
-      <div class="lg"><img src="logo/etazhi.png" alt="Этажи" onerror="this.outerHTML='<span class=alt>ЭТАЖИ</span>'"></div>
-      <div class="lg"><img src="logo/maxim.png" alt="Максим" onerror="this.outerHTML='<span class=alt>МАКСИМЪ</span>'"></div>
-      <div class="lg"><img src="logo/4d.png" alt="4D" onerror="this.outerHTML='<span class=alt>4D</span>'"></div>
-      <div class="lg"><img src="logo/tis.png" alt="ТИС" onerror="this.outerHTML='<span class=alt>ТИС</span>'"></div>
-      <div class="lg"><img src="logo/stone.png" alt="Стоун" onerror="this.outerHTML='<span class=alt>СТОУН</span>'"></div>
-      <div class="lg"><img src="logo/novaya-zemlya.png" alt="Новая Земля" onerror="this.outerHTML='<span class=alt>НОВАЯ ЗЕМЛЯ</span>'"></div>
-      <div class="lg"><img src="logo/livedrive.png" alt="LiveDrive" onerror="this.outerHTML='<span class=alt>LiveDrive</span>'"></div>
-      <div class="lg"><img src="logo/pegas.png" alt="Pegas Touristik" onerror="this.outerHTML='<span class=alt>PEGAS</span>'"></div>
+    <!-- Положи PNG/SVG логотипов в папку logo/ рядом с файлом — подхватятся сами. Пока файла нет, показывается текстовая плашка. -->
+    <div class="trust-mask">
+      <div class="trust-row" id="trust-row">
+        <div class="trust-set">
+          <div class="lg"><img src="logo/etazhi.png" alt="Этажи" onerror="this.outerHTML='<span class=alt>ЭТАЖИ</span>'"></div>
+          <div class="lg"><img src="logo/maxim.png" alt="Максим" onerror="this.outerHTML='<span class=alt>МАКСИМ</span>'"></div>
+          <div class="lg"><img src="logo/4d.png" alt="4D" onerror="this.outerHTML='<span class=alt>4D</span>'"></div>
+          <div class="lg"><img src="logo/tis.png" alt="ТИС" onerror="this.outerHTML='<span class=alt>ТИС</span>'"></div>
+          <div class="lg"><img src="logo/stone.png" alt="Стоун" onerror="this.outerHTML='<span class=alt>СТОУН</span>'"></div>
+          <div class="lg"><img src="logo/novaya-zemlya.png" alt="Новая Земля" onerror="this.outerHTML='<span class=alt>НОВАЯ ЗЕМЛЯ</span>'"></div>
+          <div class="lg"><img src="logo/livedrive.png" alt="LiveDrive" onerror="this.outerHTML='<span class=alt>LiveDrive</span>'"></div>
+          <div class="lg"><img src="logo/pegas.png" alt="Pegas Touristik" onerror="this.outerHTML='<span class=alt>PEGAS</span>'"></div>
+        </div>
+      </div>
     </div>
+    <script>
+    /* дублируем набор логотипов для бесшовной ленты */
+    (function(){
+      var row=document.getElementById('trust-row');
+      if(!matchMedia('(prefers-reduced-motion: reduce)').matches){
+        row.appendChild(row.firstElementChild.cloneNode(true));
+      }
+    })();
+    </script>
   </div>
 </div>
 
@@ -506,6 +551,35 @@ footer{border-top:1px solid var(--line);padding:28px 0;font-size:13px;color:var(
     <span>© 2026 eSoft</span>
   </div>
 </footer>
+
+<script>
+/* плавное появление блоков при скролле, с каскадом внутри сеток */
+(function(){
+  if(!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var els=document.querySelectorAll('.card,.out,.step,.fmt,.stat,.quotebox,.ten,.flow .f,.faq-list details');
+  var counts=new Map();
+  els.forEach(function(el){
+    el.classList.add('rv');
+    var p=el.parentNode,i=counts.get(p)||0;
+    counts.set(p,i+1);
+    el.style.transitionDelay=(i*70)+'ms';
+  });
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(!en.isIntersecting) return;
+      var el=en.target;
+      io.unobserve(el);
+      el.classList.add('on');
+      el.addEventListener('transitionend',function h(){
+        el.classList.remove('rv','on');
+        el.style.transitionDelay='';
+        el.removeEventListener('transitionend',h);
+      });
+    });
+  },{threshold:.15,rootMargin:'0px 0px -40px 0px'});
+  els.forEach(function(el){io.observe(el)});
+})();
+</script>
 
 </body>
 </html>
