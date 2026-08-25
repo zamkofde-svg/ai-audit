@@ -4,6 +4,25 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AI-аудит от команды eSoft — где ИИ заработает деньги в вашей компании</title>
+<meta name="description" content="AI-аудит за 3 недели: интервью с топами, карта проектов с ценой и экономией каждого, работающий прототип на ваших данных к 10-му дню. Не презентация — посчитанный план и работающий код.">
+
+<!-- превью при отправке ссылки в Telegram, WhatsApp, соцсети -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://zamkofde-svg.github.io/ai-audit/">
+<meta property="og:title" content="Найдём, где ИИ заработает деньги в вашей компании">
+<meta property="og:description" content="AI-аудит за 3 недели: карта проектов с ценой и экономией каждого и работающий прототип на ваших данных к 10-му дню.">
+<meta property="og:image" content="https://zamkofde-svg.github.io/ai-audit/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="eSoft / AI">
+<meta property="og:locale" content="ru_RU">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Найдём, где ИИ заработает деньги в вашей компании">
+<meta name="twitter:description" content="AI-аудит за 3 недели: карта проектов с ценой и экономией каждого и работающий прототип на ваших данных к 10-му дню.">
+<meta name="twitter:image" content="https://zamkofde-svg.github.io/ai-audit/og.jpg">
+<meta name="theme-color" content="#0A1120">
+<link rel="canonical" href="https://zamkofde-svg.github.io/ai-audit/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230A1120'/%3E%3Ctext x='32' y='44' font-family='Helvetica,Arial,sans-serif' font-size='34' font-weight='700' fill='%2353C8FF' text-anchor='middle'%3EAI%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -206,7 +225,13 @@ details p{padding:0 24px 20px;color:var(--mut);font-size:14.5px}
 .form input:focus,.form textarea:focus{outline:none;border-color:var(--acc)}
 .form .btn{width:100%;margin-top:20px}
 .form .fine{font-size:12px;color:var(--dim);margin-top:12px;text-align:center}
-.form .ok{display:none;margin-top:16px;border:1px solid rgba(94,230,168,.4);background:rgba(94,230,168,.08);color:var(--ok);border-radius:10px;padding:14px;font-size:14px;text-align:center}
+.form .req{color:var(--acc)}
+.form .ok{display:none;margin-top:16px;border:1px solid rgba(94,230,168,.4);background:rgba(94,230,168,.08);color:var(--ok);border-radius:10px;padding:16px;font-size:14px;text-align:center}
+.form .ok b{display:block;margin-bottom:4px}
+.form .ok #f-ok-hint{display:block;color:var(--mut);font-size:13px}
+.form .ok textarea{margin-top:12px;font-size:13px;line-height:1.5;color:var(--txt);resize:vertical}
+.copy-btn{margin-top:10px;width:100%;background:transparent;border:1px solid rgba(94,230,168,.45);color:var(--ok);border-radius:10px;padding:10px;font-family:'Manrope',system-ui,sans-serif;font-size:13.5px;font-weight:700;cursor:pointer;transition:.2s}
+.copy-btn:hover{background:rgba(94,230,168,.12)}
 
 footer{border-top:1px solid var(--line);padding:28px 0;font-size:13px;color:var(--dim)}
 .foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
@@ -287,7 +312,7 @@ footer{border-top:1px solid var(--line);padding:28px 0;font-size:13px;color:var(
         <div class="v">в оценке</div>
       </div>
       <div class="mock-bar">
-        <span>Baseline зафиксирован · 14 кейсов оценено</span>
+        <span>Точка отсчёта зафиксирована · 14 кейсов оценено</span>
         <span class="chip">День 10 из 15</span>
       </div>
     </div>
@@ -445,7 +470,7 @@ footer{border-top:1px solid var(--line);padding:28px 0;font-size:13px;color:var(
         <div class="price">от 50 000 ₽ · стоимость зависит от масштаба компании · срок до 3 недель</div>
         <ul>
           <li>Интервью с управленческой командой</li>
-          <li>Baseline: цифры «как есть»</li>
+          <li>Точка отсчёта: цифры «как есть»</li>
           <li>Карта возможностей со скорингом</li>
           <li>План на 6–12 месяцев с ценами и экономией</li>
           <li>Работающий прототип к 10-му дню</li>
@@ -460,7 +485,7 @@ footer{border-top:1px solid var(--line);padding:28px 0;font-size:13px;color:var(
           <li>Цена и эффект известны до старта</li>
           <li>Запуск в реальную работу, не в тест</li>
           <li>30 дней стабилизации включены</li>
-          <li>Замер эффекта против baseline</li>
+          <li>Замер эффекта против точки отсчёта</li>
         </ul>
       </div>
       <div class="fmt">
@@ -512,35 +537,84 @@ footer{border-top:1px solid var(--line);padding:28px 0;font-size:13px;color:var(
   <div class="wrap cta-box">
     <h2>Начните с бесплатного разбора</h2>
     <p class="sub">30 минут с руководителем направления. Расскажете, как устроен бизнес — мы честно скажем, где у вас скорее всего лежат деньги для ИИ и имеет ли смысл аудит. Если не имеет — так и скажем.</p>
-    <div class="form" id="lead-form">
-      <label for="f-name">Имя</label>
-      <input id="f-name" type="text" placeholder="Как к вам обращаться">
+    <form class="form" id="lead-form">
+      <label for="f-name">Имя <span class="req">*</span></label>
+      <input id="f-name" name="name" type="text" autocomplete="name" placeholder="Как к вам обращаться" required>
       <label for="f-company">Компания</label>
-      <input id="f-company" type="text" placeholder="Название компании">
+      <input id="f-company" name="company" type="text" autocomplete="organization" placeholder="Название компании">
       <label for="f-role">Должность</label>
-      <input id="f-role" type="text" placeholder="Собственник, директор, руководитель...">
-      <label for="f-phone">Телефон или Telegram</label>
-      <input id="f-phone" type="text" placeholder="+7 ... или @username">
+      <input id="f-role" name="role" type="text" autocomplete="organization-title" placeholder="Собственник, директор, руководитель...">
+      <label for="f-phone">Телефон или Telegram <span class="req">*</span></label>
+      <input id="f-phone" name="contact" type="text" autocomplete="tel" placeholder="+7 ... или @username" required>
       <label for="f-comment">Что болит (по желанию)</label>
-      <textarea id="f-comment" rows="3" placeholder="Пара слов о задаче"></textarea>
-      <button class="btn btn-a" onclick="sendLead()">Записаться на разбор</button>
+      <textarea id="f-comment" name="comment" rows="3" placeholder="Пара слов о задаче"></textarea>
+      <button class="btn btn-a" type="submit">Записаться на разбор</button>
       <div class="fine">Отвечаем в течение рабочего дня. Данные никому не передаём.</div>
-      <div class="ok" id="f-ok">Заявка сформирована и скопирована — сейчас откроется Telegram, просто вставьте и отправьте.</div>
-    </div>
+      <div class="ok" id="f-ok">
+        <b>Telegram открыт в соседней вкладке.</b>
+        <span id="f-ok-hint">Текст заявки скопирован — вставьте его в чат и отправьте.</span>
+        <textarea id="f-copy" rows="6" readonly></textarea>
+        <button type="button" class="copy-btn" id="f-copy-btn">Скопировать текст заявки</button>
+      </div>
+    </form>
     <div class="after">
       <span><b>1.</b> Созвон 30 минут</span>
       <span><b>2.</b> Гипотезы по вашим деньгам</span>
       <span><b>3.</b> Решение об аудите — за вами</span>
     </div>
     <script>
-    function sendLead(){
+    var TG = 'https://t.me/ZamkovD';
+
+    function leadText(){
       var v = function(id){return (document.getElementById(id).value||'').trim()};
-      var txt = 'Заявка на AI-разбор\nИмя: '+v('f-name')+'\nКомпания: '+v('f-company')+'\nДолжность: '+v('f-role')+'\nКонтакт: '+v('f-phone')+(v('f-comment')?'\nЗадача: '+v('f-comment'):'');
-      if(!v('f-name')||!v('f-phone')){alert('Заполните имя и контакт — иначе мы не сможем связаться.');return}
-      try{navigator.clipboard.writeText(txt)}catch(e){}
-      document.getElementById('f-ok').style.display='block';
-      setTimeout(function(){window.open('https://t.me/ZamkovD','_blank')},600);
+      return 'Заявка на AI-разбор\nИмя: '+v('f-name')
+        +'\nКомпания: '+v('f-company')
+        +'\nДолжность: '+v('f-role')
+        +'\nКонтакт: '+v('f-phone')
+        +(v('f-comment')?'\nЗадача: '+v('f-comment'):'');
     }
+
+    function copyLead(txt){
+      /* clipboard.writeText возвращает промис: браузер отклоняет его,
+         если вкладка не в фокусе или контекст не защищённый */
+      if(navigator.clipboard && window.isSecureContext){
+        return navigator.clipboard.writeText(txt).then(function(){return true},function(){return false});
+      }
+      return Promise.resolve(false);
+    }
+
+    document.getElementById('lead-form').addEventListener('submit',function(e){
+      e.preventDefault();
+      var txt = leadText();
+
+      /* окно открываем синхронно внутри обработчика клика —
+         из setTimeout его блокирует встроенный блокировщик всплывающих окон */
+      var win = window.open(TG,'_blank','noopener');
+
+      var box = document.getElementById('f-ok');
+      var hint = document.getElementById('f-ok-hint');
+      document.getElementById('f-copy').value = txt;
+      box.style.display = 'block';
+      box.querySelector('b').textContent = win ? 'Telegram открыт в соседней вкладке.' : 'Откройте Telegram: t.me/ZamkovD';
+
+      copyLead(txt).then(function(ok){
+        hint.textContent = ok
+          ? 'Текст заявки скопирован — вставьте его в чат и отправьте.'
+          : 'Скопируйте текст заявки ниже и отправьте его в чат.';
+      });
+
+      box.scrollIntoView({block:'nearest',behavior:'smooth'});
+    });
+
+    document.getElementById('f-copy-btn').addEventListener('click',function(){
+      var ta = document.getElementById('f-copy');
+      var btn = this;
+      copyLead(ta.value).then(function(ok){
+        if(!ok){ta.focus();ta.select();return}
+        btn.textContent = 'Скопировано';
+        setTimeout(function(){btn.textContent='Скопировать текст заявки'},2000);
+      });
+    });
     </script>
   </div>
 </section>
