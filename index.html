@@ -120,7 +120,7 @@ h1 em{font-style:normal;background:linear-gradient(100deg,var(--acc) 5%,#A6E7FF 
   .hero{padding:64px 0 72px}
   .hero-btns .btn{flex:1 1 100%}
   .hero-stats{grid-template-columns:1fr;gap:18px}
-  .stat{display:grid;grid-template-columns:132px 1fr;gap:14px;align-items:baseline}
+  .stat{display:grid;grid-template-columns:146px 1fr;gap:14px;align-items:baseline}
   .stat b{margin:0;font-size:21px}
 }
 
@@ -241,6 +241,9 @@ h1 em{font-style:normal;background:linear-gradient(100deg,var(--acc) 5%,#A6E7FF 
 .sol p{font-size:14px;color:var(--mut)}
 .sol .res{margin-top:auto;padding-top:14px;border-top:1px dashed var(--line2);font-size:13.5px;line-height:1.5;color:var(--txt)}
 .sol .res b{color:var(--acc);font-weight:600}
+.done{display:flex;flex-wrap:wrap;align-items:center;gap:6px}
+.done span{font-size:12px;font-weight:600;padding:3px 10px;border-radius:100px;border:1px solid rgba(94,230,168,.32);color:var(--ok)}
+.done .dl{padding:0;border:none;font-family:var(--f-m);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--dim)}
 .sol-cta{margin-top:24px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;padding:24px 28px;border-radius:var(--r);border:1px solid rgba(92,203,255,.3);background:linear-gradient(100deg,rgba(92,203,255,.1),rgba(92,203,255,.02))}
 .sol-cta p{font-family:var(--f-d);font-size:clamp(18px,1.8vw,21px);font-weight:600;letter-spacing:-.01em}
 .sol-cta p span{color:var(--acc)}
@@ -255,7 +258,7 @@ h1 em{font-style:normal;background:linear-gradient(100deg,var(--acc) 5%,#A6E7FF 
 .stepper ol{list-style:none}
 .stepper{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:10px 28px}
 .stepper ol{position:relative}
-.stepper ol::before{content:"";position:absolute;left:9px;top:30px;bottom:30px;width:2px;background:linear-gradient(var(--ok) 60%,var(--acc))}
+.stepper ol::before{content:"";position:absolute;left:9px;top:30px;bottom:30px;width:2px;background:linear-gradient(var(--ok) 78%,var(--acc))}
 .stepper .h{font-family:var(--f-m);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);padding:14px 0 6px}
 .stepper li{position:relative;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:18px 0 18px 38px;border-bottom:1px solid var(--line);font-weight:600;font-size:15.5px;line-height:1.35}
 .stepper li:last-child{border-bottom:none}
@@ -271,8 +274,7 @@ h1 em{font-style:normal;background:linear-gradient(100deg,var(--acc) 5%,#A6E7FF 
 .f-grid{display:grid;grid-template-columns:360px 1fr;gap:60px;align-items:center;margin-top:56px}
 @media(max-width:880px){.f-grid{grid-template-columns:1fr;gap:36px}.f-photo{max-width:380px}}
 .f-photo{position:relative;border-radius:24px;overflow:hidden;border:1px solid var(--line2);box-shadow:0 40px 90px -30px rgba(0,0,0,.8)}
-.f-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(7,11,22,.55));pointer-events:none}
-.f-photo img{display:block;width:100%}
+.f-photo img{display:block;width:100%;height:auto}
 .f-name{font-family:var(--f-d);font-size:30px;font-weight:700;letter-spacing:-.025em;margin-bottom:6px}
 .f-role{color:var(--acc);font-weight:500;font-size:15.5px;margin-bottom:24px}
 .f-facts{list-style:none;margin-bottom:28px}
@@ -289,6 +291,46 @@ h1 em{font-style:normal;background:linear-gradient(100deg,var(--acc) 5%,#A6E7FF 
 .role{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:18px 20px}
 .role b{display:block;font-size:16px;margin-bottom:2px}
 .role span{font-size:14px;color:var(--mut)}
+
+/* ETAZHI */
+.eco{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:16px;margin-top:52px}
+.eco>div{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:28px 28px 26px}
+.eco>.main{border-color:rgba(94,230,168,.38);background:linear-gradient(125deg,rgba(94,230,168,.14),var(--panel) 70%)}
+.eco b{display:block;font-family:var(--f-d);font-size:clamp(28px,3.3vw,42px);font-weight:700;letter-spacing:-.035em;line-height:1.05;margin-bottom:10px}
+.eco>.main b{font-size:clamp(34px,4.4vw,56px);color:var(--ok)}
+.eco span{display:block;color:var(--mut);font-size:14.5px;line-height:1.5}
+@media(max-width:900px){.eco{grid-template-columns:1fr 1fr}.eco>.main{grid-column:1/-1}}
+@media(max-width:480px){.eco{grid-template-columns:1fr}}
+.ez-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px}
+@media(max-width:960px){.ez-grid{grid-template-columns:1fr}}
+.ez{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:26px;display:flex;flex-direction:column;gap:16px}
+.ez-top{display:flex;justify-content:space-between;align-items:center;gap:10px;min-height:24px}
+.dept{font-family:var(--f-m);font-size:11.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--acc)}
+.ez h3{font-size:19px}
+.ez dl{display:grid;gap:14px}
+.ez dt{font-family:var(--f-m);font-size:10.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);margin-bottom:3px}
+.ez dd{font-size:14.5px;color:var(--mut)}
+.ez-res{margin-top:auto;padding-top:16px;border-top:1px dashed var(--line2)}
+.ez-res span{display:block;font-family:var(--f-m);font-size:10.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ok);margin-bottom:4px}
+.ez-res b{font-family:var(--f-d);font-size:24px;letter-spacing:-.02em;color:var(--ok)}
+/* заглушки, пока нет данных */
+.sk{display:block;height:11px;margin:8px 0;border-radius:6px;background:linear-gradient(90deg,rgba(255,255,255,.05) 25%,rgba(255,255,255,.12) 50%,rgba(255,255,255,.05) 75%);background-size:200% 100%;animation:shim 1.8s linear infinite}
+h3 .sk,b .sk{height:18px;margin:4px 0}
+.sk.big{height:26px}
+.w40{width:40%}.w50{width:50%}.w60{width:60%}.w70{width:70%}.w80{width:80%}
+
+/* CREW */
+.crew{margin-top:72px}
+.crew>h3{font-size:clamp(24px,2.6vw,30px);margin-bottom:24px}
+.crew-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:960px){.crew-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.crew-grid{grid-template-columns:1fr}}
+.mem{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:26px;display:flex;flex-direction:column;gap:6px}
+.av{width:64px;height:64px;border-radius:18px;display:grid;place-items:center;margin-bottom:16px;font-family:var(--f-d);font-size:22px;font-weight:700;color:var(--acc);background:linear-gradient(160deg,rgba(92,203,255,.18),rgba(47,140,255,.05));border:1px solid rgba(92,203,255,.32)}
+.mem.tbd .av{color:var(--dim);background:rgba(255,255,255,.025);border:1px dashed var(--line2)}
+.mem>b{font-family:var(--f-d);font-size:18.5px;font-weight:600;letter-spacing:-.01em}
+.mr{font-size:14px;line-height:1.45;color:var(--acc)}
+.mem p{margin-top:10px;font-size:14px;color:var(--mut)}
 
 /* COMPARE */
 .table-wrap{margin-top:56px;overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-radius:var(--r);background:var(--panel)}
@@ -374,7 +416,7 @@ details[open] p{animation:fadeUp .35s var(--ease)}
 @media(max-width:560px){summary{font-size:16.5px;padding:20px 0}details p{padding-right:0}}
 
 /* CTA + FORM */
-.cta-sec{position:relative;overflow:hidden;background:var(--bg2)}
+.cta-sec{position:relative;overflow:hidden;background:var(--bg2);border-top:1px solid var(--line)}
 .cta-sec .glow.a{top:-420px;right:-300px;opacity:.8}
 .cta-grid{position:relative;display:grid;grid-template-columns:1fr 520px;gap:64px;align-items:start}
 @media(max-width:1020px){.cta-grid{grid-template-columns:1fr;gap:44px}}
@@ -425,6 +467,7 @@ footer{border-top:1px solid var(--line);padding:36px 0}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
 @keyframes ring{0%{box-shadow:0 0 0 0 rgba(92,203,255,.5)}80%,100%{box-shadow:0 0 0 9px rgba(92,203,255,0)}}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes shim{to{background-position:-200% 0}}
 @keyframes mq{to{transform:translateX(calc(-50% - 7px))}}
 .hero .badge{animation:fadeUp .6s .05s var(--ease) backwards}
 .hero h1{animation:fadeUp .7s .12s var(--ease) backwards}
@@ -453,7 +496,7 @@ footer{border-top:1px solid var(--line);padding:36px 0}
   <div class="wrap nav-in">
     <a class="logo" href="#top" aria-label="eSoft / AI — наверх"><span class="mk">AI</span><span>eSoft <b>/ AI</b></span></a>
     <div class="nav-l">
-      <a href="#offer">Аудит</a><a href="#how">Как проходит</a><a href="#solutions">Решения</a><a href="#case">Кейс</a><a href="#founder">Команда</a><a href="#formats">Форматы</a><a href="#faq">FAQ</a>
+      <a href="#offer">Аудит</a><a href="#how">Как проходит</a><a href="#solutions">Решения</a><a href="#case">Кейсы</a><a href="#founder">Команда</a><a href="#formats">Форматы</a><a href="#faq">FAQ</a>
     </div>
     <div class="nav-r">
       <a class="btn btn-a nav-cta" href="#cta">Записаться на разбор</a>
@@ -467,7 +510,8 @@ footer{border-top:1px solid var(--line);padding:36px 0}
   <a href="#offer">Что даёт аудит</a>
   <a href="#how">Как проходит</a>
   <a href="#solutions">Решения</a>
-  <a href="#case">Кейс</a>
+  <a href="#case">Кейс «Максима»</a>
+  <a href="#etazhi">Кейсы «Этажей»</a>
   <a href="#founder">Команда</a>
   <a href="#formats">Форматы работы</a>
   <a href="#training">Обучение</a>
@@ -491,7 +535,7 @@ footer{border-top:1px solid var(--line);padding:36px 0}
       </div>
       <div class="hero-note">30 минут. Разберём вашу ситуацию и честно скажем, есть ли у вас деньги для ИИ.</div>
       <div class="hero-stats">
-        <div class="stat"><b>Миллионы&nbsp;₽</b><span>экономии от десятков ИИ-продуктов, внедрённых в «Этажах»</span></div>
+        <div class="stat"><b>Сотни млн&nbsp;₽</b><span>экономии «Этажей» от продуктов, которые запускала наша команда</span></div>
         <div class="stat"><b>100+</b><span>городов, где работает наш <a href="https://colver.pro" target="_blank" rel="noopener">Colver</a></span></div>
         <div class="stat"><b>10-й день</b><span>работающий прототип на ваших данных</span></div>
       </div>
@@ -519,6 +563,8 @@ footer{border-top:1px solid var(--line);padding:36px 0}
         <div class="trust-set">
           <div class="lg"><img src="logo/etazhi.png" alt="Этажи" onerror="this.outerHTML='<span class=alt>ЭТАЖИ</span>'"></div>
           <div class="lg"><img src="logo/maxim.png" alt="Максим" onerror="this.outerHTML='<span class=alt>МАКСИМ</span>'"></div>
+          <div class="lg"><img src="logo/neoni.png" alt="Neoni" onerror="this.outerHTML='<span class=alt>NEONI</span>'"></div>
+          <div class="lg"><img src="logo/shodka.png" alt="Сходка" onerror="this.outerHTML='<span class=alt>СХОДКА</span>'"></div>
           <div class="lg"><img src="logo/4d.png" alt="4D" onerror="this.outerHTML='<span class=alt>4D</span>'"></div>
           <div class="lg"><img src="logo/tis.png" alt="ТИС" onerror="this.outerHTML='<span class=alt>ТИС</span>'"></div>
           <div class="lg"><img src="logo/stone.png" alt="Стоун" onerror="this.outerHTML='<span class=alt>СТОУН</span>'"></div>
@@ -618,6 +664,7 @@ footer{border-top:1px solid var(--line);padding:36px 0}
         <div class="sol-top"><span class="st on">Работает</span></div>
         <h3>Управленческие дашборды</h3>
         <p>Собираем цифры бизнеса в одном месте и подсвечиваем отклонения до того, как они стали проблемой.</p>
+        <div class="done"><span class="dl">Внедрено</span><span>«Максим»</span><span>Neoni, Екатеринбург</span><span>«Сходка», Тюмень</span></div>
         <div class="res"><b>Пример:</b> «Фудкост вырос на 5% за неделю» приходит сигналом, а не обнаруживается в конце месяца.</div>
       </div>
       <div class="sol live lift">
@@ -668,7 +715,7 @@ footer{border-top:1px solid var(--line);padding:36px 0}
       <h2>Ресторанная сеть «Максим», Тюмень</h2>
       <p class="sub">Ровно по этой схеме мы зашли в действующую ресторанную сеть — и от аудита дошли до работающих систем.</p>
       <div class="quote">
-        <p><b>Как это было:</b> провели интервью со всеми топ-менеджерами, выявили и приоритизировали проблемы, защитили план внедрения. Первым проектом реализовали оптимизацию закупок — система готова и работает. Сейчас в работе следующие проекты дорожной карты: управленческий дашборд сети с ИИ и автоматизация закупок. Параллельно наши дашборды для ресторанных сетей уже тиражируются на другие компании отрасли.</p>
+        <p><b>Как это было:</b> провели интервью со всеми топ-менеджерами, выявили и приоритизировали проблемы, защитили план внедрения. Первым проектом реализовали оптимизацию закупок, следом запустили управленческий дашборд сети с ИИ — обе системы работают. Сейчас в работе автоматизация закупок. Дашборд мы уже тиражировали на другие компании отрасли: он работает в Neoni (Екатеринбург) и «Сходке» (Тюмень).</p>
       </div>
     </div>
     <div class="stepper">
@@ -677,17 +724,64 @@ footer{border-top:1px solid var(--line);padding:36px 0}
       <li class="d">Аудит и интервью с топами<span class="s d">Готово</span></li>
       <li class="d">Приоритизация по деньгам<span class="s d">Готово</span></li>
       <li class="d">Оптимизация закупок<span class="s d">Готово</span></li>
-      <li class="w">Управленческий дашборд сети с ИИ<span class="s w">В работе</span></li>
+      <li class="d">Управленческий дашборд сети с ИИ<span class="s d">Готово</span></li>
       <li class="w">Автозакупки<span class="s w">В работе</span></li>
       </ol>
     </div>
   </div>
 </section>
 
-<section class="alt" id="founder">
+<section class="alt" id="etazhi">
   <div class="wrap">
     <div class="sh">
-      <div class="eyebrow"><span>06</span>Кто ведёт аудит</div>
+      <div class="eyebrow"><span>06</span>Полигон «Этажи»</div>
+      <h2>Сначала внедрили у себя. Внутри федеральной компании</h2>
+      <p class="sub">«Этажи» — наш полигон. Решения проходят проверку на реальных процессах крупной сети, прежде чем мы предлагаем их клиентам.</p>
+    </div>
+    <!-- ЦИФРЫ: заменить «Сотни миллионов» на точную сумму экономии, когда будет посчитана -->
+    <div class="eco">
+      <div class="main"><b>Сотни миллионов&nbsp;₽</b><span>экономии «Этажей» от продуктов, которые запускала наша команда</span></div>
+      <div><b>Десятки</b><span>ИИ-продуктов в ежедневной работе сети</span></div>
+      <div><b>100+</b><span>городов, где работает Colver</span></div>
+    </div>
+    <!-- ЗАГЛУШКИ: заполнить по шаблону «Задача / Что сделали / Результат» (цифра: часы, рубли, конверсия),
+         заменить каждый <i class="sk"> на текст, убрать класс tbd и метку «Готовим» -->
+    <div class="ez-grid">
+      <article class="ez tbd lift">
+        <div class="ez-top"><span class="dept">Юридический департамент</span><span class="st ask">Готовим</span></div>
+        <h3><i class="sk w70"></i></h3>
+        <dl>
+          <div><dt>Задача</dt><dd><i class="sk"></i><i class="sk w60"></i></dd></div>
+          <div><dt>Что сделали</dt><dd><i class="sk"></i><i class="sk w80"></i></dd></div>
+        </dl>
+        <div class="ez-res"><span>Результат</span><i class="sk big w50"></i></div>
+      </article>
+      <article class="ez tbd lift">
+        <div class="ez-top"><span class="dept"><i class="sk" style="width:120px;margin:0"></i></span><span class="st ask">Готовим</span></div>
+        <h3><i class="sk w70"></i></h3>
+        <dl>
+          <div><dt>Задача</dt><dd><i class="sk"></i><i class="sk w60"></i></dd></div>
+          <div><dt>Что сделали</dt><dd><i class="sk"></i><i class="sk w80"></i></dd></div>
+        </dl>
+        <div class="ez-res"><span>Результат</span><i class="sk big w50"></i></div>
+      </article>
+      <article class="ez tbd lift">
+        <div class="ez-top"><span class="dept"><i class="sk" style="width:120px;margin:0"></i></span><span class="st ask">Готовим</span></div>
+        <h3><i class="sk w70"></i></h3>
+        <dl>
+          <div><dt>Задача</dt><dd><i class="sk"></i><i class="sk w60"></i></dd></div>
+          <div><dt>Что сделали</dt><dd><i class="sk"></i><i class="sk w80"></i></dd></div>
+        </dl>
+        <div class="ez-res"><span>Результат</span><i class="sk big w50"></i></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="founder">
+  <div class="wrap">
+    <div class="sh">
+      <div class="eyebrow"><span>07</span>Кто ведёт аудит</div>
       <h2>К вам приезжает команда,<br>которая сама внедряет</h2>
     </div>
     <div class="f-grid">
@@ -704,6 +798,30 @@ footer{border-top:1px solid var(--line);padding:36px 0}
         <div class="f-quote">Я не продаю технологии. Я нахожу, где компания теряет деньги, и убираю эту потерю — руками своей команды, с замером до и после.»</div>
       </div>
     </div>
+    <!-- ЗАГЛУШКИ: Пахатаев пришлёт описание; ещё два участника — позже -->
+    <div class="crew">
+      <h3>Кто ещё в команде</h3>
+      <div class="crew-grid">
+        <div class="mem lift">
+          <div class="av">ДП</div>
+          <b>Данил Пахатаев</b>
+          <span class="mr">Руководитель проектного офиса юридического департамента «Этажей»</span>
+          <p class="tbd"><i class="sk"></i><i class="sk w70"></i></p>
+        </div>
+        <div class="mem tbd lift">
+          <div class="av">+</div>
+          <b><i class="sk w60"></i></b>
+          <span class="mr"><i class="sk w80"></i></span>
+          <p><i class="sk"></i><i class="sk w70"></i></p>
+        </div>
+        <div class="mem tbd lift">
+          <div class="av">+</div>
+          <b><i class="sk w50"></i></b>
+          <span class="mr"><i class="sk w70"></i></span>
+          <p><i class="sk"></i><i class="sk w60"></i></p>
+        </div>
+      </div>
+    </div>
     <div class="team">
       <div>
         <h3>Как устроена команда</h3>
@@ -718,10 +836,10 @@ footer{border-top:1px solid var(--line);padding:36px 0}
   </div>
 </section>
 
-<section id="compare">
+<section class="alt" id="compare">
   <div class="wrap">
     <div class="sh">
-      <div class="eyebrow"><span>07</span>Сравнение</div>
+      <div class="eyebrow"><span>08</span>Сравнение</div>
       <h2>Чем мы отличаемся от консультантов и студий разработки</h2>
     </div>
     <div class="table-wrap">
@@ -739,10 +857,10 @@ footer{border-top:1px solid var(--line);padding:36px 0}
   </div>
 </section>
 
-<section class="alt" id="formats">
+<section id="formats">
   <div class="wrap">
     <div class="sh">
-      <div class="eyebrow"><span>08</span>Форматы работы</div>
+      <div class="eyebrow"><span>09</span>Форматы работы</div>
       <h2>От аудита до внешнего AI-отдела</h2>
       <p class="sub">Начинаем с аудита. Дальше — только те проекты, экономику которых вы увидели и утвердили.</p>
     </div>
@@ -790,10 +908,10 @@ footer{border-top:1px solid var(--line);padding:36px 0}
   </div>
 </section>
 
-<section class="edu" id="training">
+<section class="edu alt" id="training">
   <div class="wrap edu-grid">
     <div>
-      <div class="eyebrow"><span>09</span>Обучение</div>
+      <div class="eyebrow"><span>10</span>Обучение</div>
       <h2>Сначала разберитесь сами</h2>
       <p class="sub">Самый дорогой способ внедрять ИИ: не понимать, что он умеет. Проводим обучение для собственников и топ-менеджеров: за несколько встреч вы своими руками решаете задачи из собственной недели и понимаете, где ИИ даст деньги именно вам.</p>
       <a class="btn btn-a" href="#cta" data-topic="edu">Узнать про обучение <span class="ar">→</span></a>
@@ -806,16 +924,16 @@ footer{border-top:1px solid var(--line);padding:36px 0}
   </div>
 </section>
 
-<section class="alt" id="partners">
+<section id="partners">
   <div class="wrap">
     <div class="sh">
-      <div class="eyebrow"><span>10</span>Партнёрам</div>
+      <div class="eyebrow"><span>11</span>Партнёрам</div>
       <h2>Работаете с бизнесом? Давайте зарабатывать вместе</h2>
     </div>
     <div class="p-grid">
       <div class="pcard main lift">
         <div class="tag">Для экспертов</div>
-        <p>Бизнес-тренеры, консультанты, психологи, маркетологи: если вы уже работаете с собственниками, приводите клиентов на аудит и получайте вознаграждение с каждого внедрения. Вы остаётесь экспертом для клиента, мы берём на себя технологии.</p>
+        <p>Бизнес-тренеры, маркетологи и консультанты любого профиля: если вы уже работаете с собственниками, приводите клиентов на аудит и получайте вознаграждение с каждого внедрения. Вы остаётесь экспертом для клиента, мы берём на себя технологии.</p>
         <a class="btn btn-a" href="#cta" data-topic="partner">Стать партнёром <span class="ar">→</span></a>
       </div>
       <div class="pcard lift">
@@ -826,10 +944,10 @@ footer{border-top:1px solid var(--line);padding:36px 0}
   </div>
 </section>
 
-<section id="faq">
+<section class="alt" id="faq">
   <div class="wrap faq-grid">
     <div class="faq-side">
-      <div class="eyebrow"><span>11</span>Частые вопросы</div>
+      <div class="eyebrow"><span>12</span>Частые вопросы</div>
       <h2>Про данные, безопасность и «а вдруг не получится»</h2>
       <a class="tg-l" href="https://t.me/ZamkovD" target="_blank" rel="noopener">Не нашли ответ? Спросите в Telegram <span>→</span></a>
     </div>
@@ -864,7 +982,7 @@ footer{border-top:1px solid var(--line);padding:36px 0}
       </details>
       <details>
         <summary>Чем вы отличаетесь от интеграторов, которые продают речевую аналитику и чат-ботов?</summary>
-        <p>Речевая аналитика и боты у нас тоже есть, но это инструменты, а не оффер. Мы начинаем с денег и процессов, а инструмент выбираем под задачу. И всё, что предлагаем, сначала проверили внутри «Этажей».</p>
+        <p>Речевая аналитика и боты у нас тоже есть, но это инструменты, а не оффер. Мы начинаем с денег и процессов, а инструмент выбираем под задачу. А всё, что мы продаём как готовое решение, уже работает на реальных процессах: в «Этажах» или у наших клиентов.</p>
       </details>
     </div>
   </div>
@@ -992,7 +1110,7 @@ footer{border-top:1px solid var(--line);padding:36px 0}
 
   /* световое пятно за курсором на карточках */
   if(matchMedia('(hover: hover)').matches && !reduce){
-    $$('.card,.out,.step,.sol,.fmt,.role,.edu-f,.pcard').forEach(function(el){ el.classList.add('spot') });
+    $$('.card,.out,.step,.sol,.fmt,.role,.edu-f,.pcard,.ez,.mem').forEach(function(el){ el.classList.add('spot') });
     document.addEventListener('pointermove', function(e){
       var el = e.target.closest && e.target.closest('.spot');
       if(!el) return;
@@ -1006,7 +1124,7 @@ footer{border-top:1px solid var(--line);padding:36px 0}
   var tl = $('.tl');
   if(!('IntersectionObserver' in window) || reduce){ tl.classList.add('on') }
   else {
-    var els = $$('.sh,.card,.out,.step,.sol,.fmt,.role,.edu-f,.pcard,.stepper,.quote,.ten,.callout,.sol-cta,.f-photo,.table-wrap,.faq-list details');
+    var els = $$('.sh,.card,.out,.step,.sol,.fmt,.role,.edu-f,.pcard,.ez,.mem,.eco > div,.stepper,.quote,.ten,.callout,.sol-cta,.f-photo,.table-wrap,.faq-list details');
     var counts = new Map();
     els.forEach(function(el){
       el.classList.add('rv');
