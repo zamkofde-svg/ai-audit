@@ -272,6 +272,12 @@ h1 em{font-style:normal;background:linear-gradient(100deg,var(--acc) 5%,#A6E7FF 
 .done.many{gap:5px}
 .done.many span:not(.dl){font-size:11.5px;padding:2px 8px}
 .done .dl{padding:0;border:none;font-family:var(--f-m);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--dim)}
+.ask-h{margin:40px 0 16px;font-family:var(--f-m);font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
+.ask-grid{grid-template-columns:repeat(3,1fr);margin-top:0}
+.ask-grid .sol{padding:22px 24px}
+.ask-grid .sol-top{min-height:0}
+@media(max-width:900px){.ask-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.ask-grid{grid-template-columns:1fr}}
 .sol-cta{margin-top:24px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;padding:24px 28px;border-radius:var(--r);border:1px solid rgba(92,203,255,.3);background:linear-gradient(100deg,rgba(92,203,255,.1),rgba(92,203,255,.02))}
 .sol-cta p{font-family:var(--f-d);font-size:clamp(18px,1.8vw,21px);font-weight:600;letter-spacing:-.01em}
 .sol-cta p span{color:var(--acc)}
@@ -684,9 +690,9 @@ footer{border-top:1px solid var(--line);padding:36px 0}
       <div class="sol live lift">
         <div class="sol-top"><span class="st on">Работает</span><span class="prod">Colver</span></div>
         <h3>Контроль коммуникаций</h3>
-        <p>Анализируем звонки, встречи и переписки по всей воронке продаж. Видно, на каком этапе теряются клиенты и какой менеджер сливает конверсию.</p>
+        <p>Анализируем 100% звонков с клиентами, дальше — встречи и чаты. Руководитель получает не гору аналитики, а очередь задач: где менеджер ошибся, какие возражения звучат и какую сделку нужно спасать прямо сейчас.</p>
         <div class="done many"><span class="dl">Внедрено</span><span>«Этажи»</span><span>4D</span><span>ТИС</span><span>«Стоун»</span><span>«Новая Земля»</span><span>LiveDrive</span><span>Pegas Touristik</span></div>
-        <div class="res"><b>Результат:</b> рост конверсии на каждом этапе воронки, контроль качества без ручного прослушивания.</div>
+        <div class="res"><b>Результат:</b> SOS-сигнал по критичным звонкам, возврат «мёртвых» лидов, контроль качества без ручного прослушивания.</div>
       </div>
       <div class="sol live lift">
         <div class="sol-top"><span class="st on">Работает</span></div>
@@ -706,7 +712,14 @@ footer{border-top:1px solid var(--line);padding:36px 0}
         <h3>Чат-боты на входе воронки</h3>
         <p>Бот берёт один этап: квалифицирует обращение и заводит заявку в CRM. Не заменяет сотрудника целиком, снимает с него рутину первого контакта.</p>
       </div>
-      <!-- Статус ждёт подтверждения: если «Наставник» работает в «Этажах», поменять на st on + класс live -->
+    </div>
+    <div class="ask-h">По запросу — собираем под вашу задачу</div>
+    <div class="sol-grid ask-grid">
+      <div class="sol lift">
+        <div class="sol-top"><span class="st ask">По запросу</span></div>
+        <h3>ИИ-РОП</h3>
+        <p>ИИ-агент для руководителя отдела продаж: сводит CRM и разговоры, находит провалы в воронке, отстающих менеджеров и лучшие практики внутри команды.</p>
+      </div>
       <div class="sol lift">
         <div class="sol-top"><span class="st ask">По запросу</span></div>
         <h3>Наставник по продажам</h3>
@@ -714,19 +727,24 @@ footer{border-top:1px solid var(--line);padding:36px 0}
       </div>
       <div class="sol lift">
         <div class="sol-top"><span class="st ask">По запросу</span></div>
-        <h3>Бэк-офис</h3>
-        <p>ИИ-сотрудники для HR, юристов, договорной работы. Первичная квалификация кандидатов, проверка документов, подготовка договоров. Человек остаётся на подтверждении.</p>
+        <h3>ИИ-колл-центр</h3>
+        <p>Голосовые ИИ-агенты на первой линии: понимают живую речь, а не кнопки меню, закрывают типовые обращения и передают сложные случаи людям.</p>
       </div>
       <div class="sol lift">
         <div class="sol-top"><span class="st ask">По запросу</span></div>
-        <h3>Тренажёры и ассистенты</h3>
-        <p>Голосовые тренажёры продаж на реальных сценариях, ускоренная адаптация новичков, ассистенты на операционную рутину.</p>
+        <h3>Тренажёры продаж</h3>
+        <p>Сотрудник отрабатывает звонки и возражения с виртуальным клиентом на ваших сценариях и сразу получает разбор ошибок.</p>
         <div class="res"><b>Результат:</b> новый сотрудник выходит на рабочую эффективность быстрее.</div>
       </div>
       <div class="sol lift">
         <div class="sol-top"><span class="st ask">По запросу</span></div>
-        <h3>Голосовые боты</h3>
-        <p>Замена скриптовой работы колл-центра там, где люди выполняют однотипные сценарии.</p>
+        <h3>ИИ-база знаний</h3>
+        <p>Ассистент отвечает сотрудникам по вашим регламентам и инструкциям. Меньше одинаковых вопросов к экспертам, быстрее адаптация новичков.</p>
+      </div>
+      <div class="sol lift">
+        <div class="sol-top"><span class="st ask">По запросу</span></div>
+        <h3>Бэк-офис</h3>
+        <p>ИИ-сотрудники для HR, юристов, договорной работы. Первичная квалификация кандидатов, проверка документов, подготовка договоров. Человек остаётся на подтверждении.</p>
       </div>
     </div>
     <div class="sol-cta">
@@ -948,7 +966,7 @@ footer{border-top:1px solid var(--line);padding:36px 0}
     <div class="faq-list">
       <details>
         <summary>Наши данные попадут в открытые нейросети?</summary>
-        <p>Нет. До того как вы покажете нам хоть что-то, подписываем договор о неразглашении (NDA). Работаем в контуре, согласованном с вашей службой безопасности: где требуется — используем модели и инфраструктуру без передачи данных третьим лицам. Какие именно данные нужны для аудита, фиксируем списком заранее, лишнего не запрашиваем.</p>
+        <p>Нет. До того как вы покажете нам хоть что-то, подписываем договор о неразглашении (NDA). Какие данные и через какие сервисы обрабатываются, согласуем с вашей службой безопасности до старта. Какие именно данные нужны для аудита, фиксируем списком заранее, лишнего не запрашиваем.</p>
       </details>
       <details>
         <summary>У нас бардак в данных. Аудит вообще имеет смысл?</summary>
