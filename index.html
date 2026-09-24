@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI-аудит от команды eSoft — где ИИ заработает деньги в вашей компании</title>
-<meta name="description" content="AI-аудит за 3 недели: интервью с топами, карта проектов с ценой и экономией каждого, работающий прототип на ваших данных к 10-му дню. Не презентация — посчитанный план и работающий код.">
+<title>ИИ-аудит от команды eSoft — где ИИ заработает деньги в вашей компании</title>
+<meta name="description" content="ИИ-аудит за 3 недели: интервью с топами, карта проектов с ценой и экономией каждого, работающий прототип на ваших данных к 10-му дню. Не презентация — посчитанный план и работающий код.">
 
 <!-- превью при отправке ссылки в Telegram, WhatsApp, соцсети -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://zamkofde-svg.github.io/ai-audit/">
 <meta property="og:title" content="Найдём, где ИИ заработает деньги в вашей компании">
-<meta property="og:description" content="AI-аудит за 3 недели: карта проектов с ценой и экономией каждого и работающий прототип на ваших данных к 10-му дню.">
+<meta property="og:description" content="ИИ-аудит за 3 недели: карта проектов с ценой и экономией каждого и работающий прототип на ваших данных к 10-му дню.">
 <meta property="og:image" content="https://zamkofde-svg.github.io/ai-audit/og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -18,7 +18,7 @@
 <meta property="og:locale" content="ru_RU">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Найдём, где ИИ заработает деньги в вашей компании">
-<meta name="twitter:description" content="AI-аудит за 3 недели: карта проектов с ценой и экономией каждого и работающий прототип на ваших данных к 10-му дню.">
+<meta name="twitter:description" content="ИИ-аудит за 3 недели: карта проектов с ценой и экономией каждого и работающий прототип на ваших данных к 10-му дню.">
 <meta name="twitter:image" content="https://zamkofde-svg.github.io/ai-audit/og.jpg">
 <meta name="theme-color" content="#070B16">
 <link rel="canonical" href="https://zamkofde-svg.github.io/ai-audit/">
@@ -31,7 +31,7 @@
   --bg:#070B16; --bg2:#0A1120; --panel:#0E172C; --panel2:#121D38;
   --line:rgba(140,170,255,.11); --line2:rgba(140,170,255,.22);
   --txt:#EAF0FC; --mut:#9AA8C7; --dim:#67779B;
-  --acc:#5CCBFF; --acc2:#2F8CFF; --ok:#5EE6A8;
+  --acc:#5CCBFF; --acc2:#2F8CFF; --ok:#5EE6A8; --warn:#FF8C7A;
   --r:18px;
   --f-d:'Geologica','Onest',system-ui,sans-serif;
   --f-b:'Onest',system-ui,-apple-system,'Segoe UI',sans-serif;
@@ -166,7 +166,7 @@ h1 em{font-style:normal;background:linear-gradient(100deg,var(--acc) 5%,#A6E7FF 
 
 /* STATEMENT */
 .strip{padding:128px 0;text-align:center}
-.strip .pre{font-family:var(--f-d);font-weight:600;font-size:clamp(19px,2.4vw,28px);letter-spacing:-.015em;color:var(--dim);margin-bottom:14px}
+.strip .pre{display:none;font-family:var(--f-d);font-weight:600;font-size:clamp(19px,2.4vw,28px);letter-spacing:-.015em;color:var(--dim);margin-bottom:14px}
 .strip h2{font-size:clamp(30px,4.4vw,54px);letter-spacing:-.03em;max-width:980px;margin:0 auto}
 .strip h2 em{font-style:normal;color:var(--acc)}
 @media(max-width:720px){.strip{padding:88px 0}}
@@ -190,6 +190,31 @@ h1 em{font-style:normal;background:linear-gradient(100deg,var(--acc) 5%,#A6E7FF 
 .callout{margin-top:20px;border:1px solid rgba(92,203,255,.28);background:linear-gradient(100deg,rgba(92,203,255,.1),rgba(92,203,255,.02));border-radius:var(--r);padding:24px 28px;font-size:16.5px}
 .callout b{color:var(--acc);font-weight:600}
 
+/* FOMO */
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:52px}
+@media(max-width:900px){.facts{grid-template-columns:1fr}}
+.fact{display:flex;flex-direction:column;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:30px 28px 24px}
+.fact b{display:block;font-family:var(--f-d);font-size:clamp(46px,5.2vw,68px);font-weight:700;letter-spacing:-.045em;line-height:1;margin-bottom:16px;background:linear-gradient(180deg,#fff 25%,var(--acc));-webkit-background-clip:text;background-clip:text;color:transparent;white-space:nowrap}
+.fact.win{border-color:rgba(94,230,168,.35);background:linear-gradient(160deg,rgba(94,230,168,.1),var(--panel) 60%)}
+.fact.win b{background-image:linear-gradient(180deg,#fff 20%,var(--ok))}
+.fact.loss b{background-image:linear-gradient(180deg,#fff 20%,var(--warn))}
+.fact p{color:var(--mut);font-size:15px;margin-bottom:18px}
+.src{margin-top:auto;font-family:var(--f-m);font-size:11px;color:var(--dim);text-decoration:underline;text-decoration-color:var(--line2);text-underline-offset:3px;transition:color .2s}
+.src:hover{color:var(--acc)}
+.quotes{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
+@media(max-width:900px){.quotes{grid-template-columns:1fr}}
+.qc{display:flex;flex-direction:column;gap:14px;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:30px 28px 24px}
+.qc blockquote{font-family:var(--f-d);font-size:clamp(19px,1.8vw,23px);font-weight:600;letter-spacing:-.015em;line-height:1.35}
+.qc blockquote::before{content:"«"}.qc blockquote::after{content:"»"}
+.qc .ctx{color:var(--mut);font-size:14.5px}
+.qc figcaption{display:flex;align-items:center;gap:14px;margin-top:auto;padding-top:16px;border-top:1px solid var(--line);font-size:13px;color:var(--dim)}
+.qc figcaption b{display:block;font-size:15px;color:var(--txt);font-weight:600}
+.qc figcaption a{color:var(--dim);text-decoration:underline;text-underline-offset:3px}
+.qc .co{width:42px;height:42px;flex:none;border-radius:12px;display:grid;place-items:center;font-family:var(--f-d);font-size:19px;font-weight:700;color:var(--txt);background:rgba(255,255,255,.06);border:1px solid var(--line2)}
+.turn{margin-top:96px}
+.turn h3{font-size:clamp(26px,3.2vw,38px);margin-bottom:16px}
+@media(max-width:720px){.turn{margin-top:72px}}
+
 /* OFFER */
 .offer-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:56px}
 @media(max-width:820px){.offer-grid{grid-template-columns:1fr}}
@@ -202,6 +227,7 @@ h1 em{font-style:normal;background:linear-gradient(100deg,var(--acc) 5%,#A6E7FF 
 .ten .big{font-family:var(--f-d);font-weight:700;font-size:clamp(80px,10vw,124px);line-height:.8;letter-spacing:-.06em;background:linear-gradient(180deg,#fff 20%,var(--acc));-webkit-background-clip:text;background-clip:text;color:transparent}
 .ten b{display:block;font-family:var(--f-d);font-size:23px;letter-spacing:-.015em;margin-bottom:8px}
 .ten p{color:var(--mut);font-size:16px;max-width:660px}
+.ten p .g{display:inline;font-family:var(--f-b);font-size:inherit;letter-spacing:0;margin:0;color:var(--txt);font-weight:600}
 @media(max-width:560px){.ten{grid-template-columns:1fr;gap:14px;padding:28px 24px}}
 
 /* HOW */
@@ -381,26 +407,6 @@ td.us a{color:var(--acc);text-decoration:underline;text-underline-offset:3px}
 .fmt li::before{content:"";position:absolute;left:0;top:11px;width:17px;height:17px;border-radius:50%;background:rgba(94,230,168,.12) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235EE6A8' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5 9-10'/%3E%3C/svg%3E") center/10px no-repeat}
 .fmt .btn{width:100%}
 
-/* TRAINING */
-.edu-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:center}
-@media(max-width:920px){.edu-grid{grid-template-columns:1fr;gap:36px}}
-.edu .sub{margin-bottom:34px}
-.edu-f{display:flex;align-items:center;gap:18px;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px 22px;margin-bottom:12px}
-.edu-f:last-child{margin-bottom:0}
-.edu-f b{font-size:16px;font-weight:600}
-
-/* PARTNERS */
-.p-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:16px;margin-top:56px}
-@media(max-width:920px){.p-grid{grid-template-columns:1fr}}
-.pcard{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:34px 32px;display:flex;flex-direction:column;gap:16px}
-.pcard.main{border-color:rgba(92,203,255,.38);background:linear-gradient(160deg,rgba(92,203,255,.09),var(--panel) 60%)}
-.pcard .tag{font-family:var(--f-m);font-size:11.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
-.pcard.main .tag{color:var(--acc)}
-.pcard p{color:var(--mut);font-size:16.5px}
-.pcard.main p{color:var(--txt);font-size:clamp(17px,1.6vw,19px);line-height:1.55}
-.pcard .btn{align-self:flex-start;margin-top:10px}
-@media(max-width:560px){.pcard{padding:28px 22px}.pcard .btn{align-self:stretch}}
-
 /* FAQ */
 .faq-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:64px;align-items:start}
 .faq-side{position:sticky;top:110px}
@@ -455,6 +461,7 @@ footer{border-top:1px solid var(--line);padding:36px 0}
 .foot a{color:var(--mut);transition:color .2s}
 .foot a:hover{color:var(--acc)}
 .foot .logo{color:var(--txt);font-size:17px}
+.foot2{margin-top:22px;padding-top:22px;border-top:1px solid var(--line);font-size:12.5px;align-items:flex-start}
 @media(max-width:720px){footer{padding-bottom:100px}}
 
 /* mobile sticky CTA */
@@ -516,8 +523,6 @@ footer{border-top:1px solid var(--line);padding:36px 0}
   <a href="#etazhi">Кейсы «Этажей»</a>
   <a href="#founder">Команда</a>
   <a href="#formats">Форматы работы</a>
-  <a href="#training">Обучение</a>
-  <a href="#partners">Партнёрам</a>
   <a href="#faq">Вопросы</a>
   <a class="btn btn-a" href="#cta">Записаться на разбор <span class="ar">→</span></a>
 </div>
@@ -528,14 +533,14 @@ footer{border-top:1px solid var(--line);padding:36px 0}
   <div class="glow b" aria-hidden="true"></div>
   <div class="wrap hero-grid">
     <div>
-      <div class="badge"><span class="dot"></span>Команда eSoft · создатели Colver</div>
+      <div class="badge"><span class="dot"></span>eSoft — IT-компания группы «Этажи»</div>
       <h1>Найдём, где ИИ <em>заработает деньги</em> в вашей компании</h1>
-      <p class="lead">AI-аудит за 3 недели: интервью с вашими топами, карта проектов с ценой и экономией каждого, и работающий прототип на ваших данных уже к 10-му дню. Не презентация. Не стратегия. <b>Посчитанный план и работающий код.</b></p>
+      <p class="lead">ИИ-аудит за 3 недели: интервью с вашими топами, карта проектов с ценой и экономией каждого, и работающий прототип на ваших данных уже к 10-му дню. Не презентация. Не стратегия. <b>Посчитанный план и работающий код.</b></p>
       <div class="hero-btns">
         <a class="btn btn-a" href="#cta">Записаться на разбор <span class="ar">→</span></a>
         <a class="btn btn-g" href="#how">Как проходит аудит</a>
       </div>
-      <div class="hero-note">30 минут. Разберём вашу ситуацию и честно скажем, есть ли у вас деньги для ИИ.</div>
+      <div class="hero-note">30 минут. Разберём вашу ситуацию и честно скажем, есть ли в вашем бизнесе деньги, которые может вернуть ИИ.</div>
       <div class="hero-stats">
         <div class="stat"><b>Сотни млн&nbsp;₽</b><span>экономии «Этажей» от продуктов, которые запускала наша команда</span></div>
         <div class="stat"><b>100+</b><span>городов, где работает наш <a href="https://colver.pro" target="_blank" rel="noopener">Colver</a></span></div>
@@ -548,9 +553,9 @@ footer{border-top:1px solid var(--line);padding:36px 0}
       <div class="mock-h"><b>Прогресс аудита</b><span>день 10 из 15</span></div>
       <div class="bar"><i></i></div>
       <div class="row hot" style="--d:.8s"><span class="p">1</span><span class="n">Автозаказ и закупки<small>приоритет 1 · данные готовы</small></span><span class="v">прототип готов</span></div>
-      <div class="row" style="--d:.92s"><span class="p">2</span><span class="n">Контроль коммуникаций с гостями<small>приоритет 2 · Colver</small></span><span class="v">−38 ч/мес</span></div>
+      <div class="row" style="--d:.92s"><span class="p">2</span><span class="n">Планирование смен персонала<small>приоритет 2 · данные частично</small></span><span class="v m">в оценке</span></div>
       <div class="row" style="--d:1.04s"><span class="p">3</span><span class="n">Управленческий дашборд сети<small>приоритет 3 · план-факт онлайн</small></span><span class="v">внедрено</span></div>
-      <div class="row" style="--d:1.16s"><span class="p">4</span><span class="n">Отчётность без ручного сбора<small>приоритет 4 · очередь</small></span><span class="v m">в оценке</span></div>
+      <div class="row" style="--d:1.16s"><span class="p">4</span><span class="n">Отчётность без ручного сбора<small>приоритет 4 · очередь</small></span><span class="v m">в очереди</span></div>
       <div class="mock-f">Точка отсчёта зафиксирована · 14 кейсов оценено</div>
     </div>
   </div>
@@ -581,7 +586,6 @@ footer{border-top:1px solid var(--line);padding:36px 0}
 
 <section class="strip">
   <div class="wrap">
-    <div class="pre">Мы не продаём технологии ради технологий.</div>
     <h2>Мы находим, где ИИ <em>режет расходы и растит выручку</em>, и внедряем это.</h2>
   </div>
 </section>
@@ -590,7 +594,28 @@ footer{border-top:1px solid var(--line);padding:36px 0}
   <div class="wrap">
     <div class="sh">
       <div class="eyebrow"><span>01</span>Почему сейчас</div>
-      <h2>Все внедряют ИИ.<br>До денег доходят единицы.</h2>
+      <h2>Гиганты уже перестроились под ИИ.<br>Либо сейчас, либо догонять</h2>
+      <p class="sub">ИИ перестал быть экспериментом: крупнейшие компании встраивают его в работу и считают эффект в рублях. Каждый год без этого — фора конкурентам, которые начали раньше.</p>
+    </div>
+    <div class="facts">
+      <div class="fact"><b data-to="88" data-suf="%">88%</b><p>компаний в мире уже регулярно используют ИИ в работе. Год назад было 78%.</p><a class="src" href="https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai" target="_blank" rel="noopener">McKinsey, The State of AI, 2025</a></div>
+      <div class="fact win"><b data-to="475" data-suf=" млрд&nbsp;₽">475 млрд&nbsp;₽</b><p>эффект от ИИ у Сбера за 2025 год: больше 700 ИИ-инициатив и около 900 ИИ-агентов в работе.</p><a class="src" href="https://fomag.ru/news-streem/sber-v-2025-g-realizoval-700-ii-initsiativ-poluchiv-finansovyy-effekt-v-475-mlrd-rub/" target="_blank" rel="noopener">СберУниверситет, 2026</a></div>
+      <div class="fact loss"><b data-to="95" data-suf="%">95%</b><p>пилотов генеративного ИИ не дали измеримого эффекта в прибыли. Деньги получают те, кто встроил ИИ в процессы.</p><a class="src" href="https://www.forbes.com/sites/jasonsnyder/2025/08/26/mit-finds-95-of-genai-pilots-fail-because-companies-avoid-friction/" target="_blank" rel="noopener">MIT, The GenAI Divide, 2025</a></div>
+    </div>
+    <div class="quotes">
+      <figure class="qc">
+        <blockquote>Рефлекторное использование ИИ — теперь базовое ожидание в Shopify</blockquote>
+        <p class="ctx">Прежде чем просить новых людей в штат, команда должна доказать, что задачу не решит ИИ.</p>
+        <figcaption><span class="co">S</span><span><b>Тоби Лютке</b>CEO Shopify · апрель 2025 · <a href="https://www.cnbc.com/2025/04/07/shopify-ceo-prove-ai-cant-do-jobs-before-asking-for-more-headcount.html" target="_blank" rel="noopener">CNBC</a></span></figcaption>
+      </figure>
+      <figure class="qc">
+        <blockquote>В ближайшие несколько лет это сократит наш корпоративный штат</blockquote>
+        <p class="ctx">Из письма сотрудникам о генеративном ИИ. В Amazon уже больше 1000 ИИ-сервисов и приложений — работающих или в разработке.</p>
+        <figcaption><span class="co">a</span><span><b>Энди Джесси</b>CEO Amazon · июнь 2025 · <a href="https://www.cnbc.com/2025/06/17/ai-amazon-workforce-jassy.html" target="_blank" rel="noopener">CNBC</a></span></figcaption>
+      </figure>
+    </div>
+    <div class="turn">
+      <h3>Внедряют все. До денег доходят единицы</h3>
       <p class="sub">Проблема не в технологиях. Проблема в том, что между «попробовали нейросеть» и «сократили расходы на конкретную сумму» лежит работа, которую некому делать.</p>
     </div>
     <div class="grid4">
@@ -606,7 +631,7 @@ footer{border-top:1px solid var(--line);padding:36px 0}
 <section class="alt" id="offer">
   <div class="wrap">
     <div class="sh">
-      <div class="eyebrow"><span>02</span>AI-аудит</div>
+      <div class="eyebrow"><span>02</span>ИИ-аудит</div>
       <h2>Что вы получаете за 3 недели</h2>
       <p class="sub">Фиксированная цена и срок до старта. Четыре конкретных результата, каждый из которых можно проверить. Работаем с компаниями любого масштаба — для небольших аудит проходит быстрее и дешевле.</p>
     </div>
@@ -618,7 +643,7 @@ footer{border-top:1px solid var(--line);padding:36px 0}
     </div>
     <div class="ten">
       <div class="big">10</div>
-      <div><b>Правило десятого дня</b><p>К 10-му рабочему дню аудита показываем живой прототип первого проекта на ваших данных. Если этого не происходит — это наш риск, не ваш.</p></div>
+      <div><b>Правило десятого дня</b><p>К 10-му рабочему дню аудита показываем живой прототип первого проекта на ваших данных. <b class="g">Не показали — вернём деньги за аудит.</b></p></div>
     </div>
   </div>
 </section>
@@ -648,7 +673,7 @@ footer{border-top:1px solid var(--line);padding:36px 0}
   <div class="wrap">
     <div class="sh">
       <div class="eyebrow"><span>04</span>Решения</div>
-      <h2>Аудит показывает, где деньги. Дальше мы их забираем</h2>
+      <h2>Аудит показывает, где деньги. Дальше превращаем их в экономию</h2>
       <p class="sub">Готовые решения, которые мы адаптируем под ваш бизнес. Каждое внедряется только после того, как вы увидели его экономику.</p>
       <div class="legend">
         <span><span class="st on">Работает</span>есть живой внедрённый кейс</span>
@@ -739,7 +764,7 @@ footer{border-top:1px solid var(--line);padding:36px 0}
     <div class="sh">
       <div class="eyebrow"><span>06</span>Полигон «Этажи»</div>
       <h2>Сначала внедрили у себя. Внутри федеральной компании</h2>
-      <p class="sub">«Этажи» — наш полигон. Решения проходят проверку на реальных процессах крупной сети, прежде чем мы предлагаем их клиентам.</p>
+      <p class="sub">eSoft — IT-компания группы «Этажи», а «Этажи» — наш полигон. Решения проходят проверку на реальных процессах федеральной сети, прежде чем мы предлагаем их клиентам.</p>
     </div>
     <!-- ЦИФРЫ: заменить «Сотни миллионов» на точную сумму экономии, когда будет посчитана -->
     <div class="eco">
@@ -747,9 +772,9 @@ footer{border-top:1px solid var(--line);padding:36px 0}
       <div><b>Десятки</b><span>ИИ-продуктов в ежедневной работе сети</span></div>
       <div><b>100+</b><span>городов, где работает Colver</span></div>
     </div>
-    <!-- ЗАГЛУШКИ: заполнить по шаблону «Задача / Что сделали / Результат» (цифра: часы, рубли, конверсия),
-         заменить каждый <i class="sk"> на текст, убрать класс tbd и метку «Готовим» -->
-    <div class="ez-grid">
+    <!-- ЗАГЛУШКИ (скрыты атрибутом hidden): заполнить по шаблону «Задача / Что сделали / Результат» (цифра: часы, рубли, конверсия),
+         заменить каждый <i class="sk"> на текст, убрать класс tbd, метку «Готовим» и атрибут hidden у .ez-grid -->
+    <div class="ez-grid" hidden>
       <article class="ez tbd lift">
         <div class="ez-top"><span class="dept">Юридический департамент</span><span class="st ask">Готовим</span></div>
         <h3><i class="sk w70"></i></h3>
@@ -791,7 +816,7 @@ footer{border-top:1px solid var(--line);padding:36px 0}
       <div class="f-photo"><img src="photo.jpg" alt="Данил Замков" width="420" height="630" loading="lazy" onerror="this.outerHTML='<div style=&quot;aspect-ratio:2/3;display:flex;align-items:center;justify-content:center;background:linear-gradient(160deg,#121D38,#0D1730);color:#5CCBFF;font-family:Geologica,sans-serif;font-size:64px;font-weight:700&quot;>ДЗ</div>'"></div>
       <div>
         <div class="f-name">Данил Замков</div>
-        <div class="f-role">Руководитель направления AI-внедрений eSoft</div>
+        <div class="f-role">Руководитель направления ИИ-внедрений eSoft</div>
         <ul class="f-facts">
           <li>Внутри «Этажей» прошёл путь от руководителя проектного офиса до продакта и руководителя направления — запускал продукты, сэкономившие сети сотни миллионов рублей</li>
           <li>Развивает Colver — систему ИИ-контроля коммуникаций, работающую в 100+ городах</li>
@@ -801,7 +826,7 @@ footer{border-top:1px solid var(--line);padding:36px 0}
         <div class="f-quote">Я не продаю технологии. Я нахожу, где компания теряет деньги, и убираю эту потерю — руками своей команды, с замером до и после.»</div>
       </div>
     </div>
-    <!-- ЗАГЛУШКИ: Пахатаев пришлёт описание; ещё два участника — позже -->
+    <!-- ЗАГЛУШКИ скрыты атрибутом hidden: Пахатаев пришлёт описание; ещё два участника — позже -->
     <div class="crew">
       <h3>Кто ещё в команде</h3>
       <div class="crew-grid">
@@ -809,15 +834,15 @@ footer{border-top:1px solid var(--line);padding:36px 0}
           <div class="av">ДП</div>
           <b>Данил Пахатаев</b>
           <span class="mr">Руководитель проектного офиса юридического департамента «Этажей»</span>
-          <p class="tbd"><i class="sk"></i><i class="sk w70"></i></p>
+          <p class="tbd" hidden><i class="sk"></i><i class="sk w70"></i></p>
         </div>
-        <div class="mem tbd lift">
+        <div class="mem tbd lift" hidden>
           <div class="av">+</div>
           <b><i class="sk w60"></i></b>
           <span class="mr"><i class="sk w80"></i></span>
           <p><i class="sk"></i><i class="sk w70"></i></p>
         </div>
-        <div class="mem tbd lift">
+        <div class="mem tbd lift" hidden>
           <div class="av">+</div>
           <b><i class="sk w50"></i></b>
           <span class="mr"><i class="sk w70"></i></span>
@@ -828,12 +853,12 @@ footer{border-top:1px solid var(--line);padding:36px 0}
     <div class="team">
       <div>
         <h3>Как устроена команда</h3>
-        <p>К вам приходит не продавец, а PM, который умеет внедряться в бизнес: опрашивает людей, раскладывает процессы, считает экономию. За ним стоят AI-инженеры, которые собирают решения прямо на ваших данных, и собственные ИИ-агенты команды для тестирования, аналитики и поддержки. Поэтому мы быстрее и дешевле классической студии разработки.</p>
+        <p>К вам приходит не продавец, а менеджер проекта, который умеет внедряться в бизнес: опрашивает людей, раскладывает процессы, считает экономию. За ним стоят ИИ-инженеры, которые собирают решения прямо на ваших данных, и собственные ИИ-агенты команды для тестирования, аналитики и поддержки. Поэтому мы быстрее и дешевле классической студии разработки.</p>
       </div>
       <div class="roles">
-        <div class="role lift"><div class="num">PM</div><div><b>PM, который внедряется в бизнес</b><span>опрашивает людей, раскладывает процессы, считает экономию</span></div></div>
-        <div class="role lift"><div class="num">AI</div><div><b>AI-инженеры</b><span>собирают решения прямо на ваших данных</span></div></div>
-        <div class="role lift"><div class="num">&lt;/&gt;</div><div><b>ИИ-агенты команды</b><span>тестирование, аналитика и поддержка</span></div></div>
+        <div class="role lift"><div class="num">01</div><div><b>Менеджер проекта, который внедряется в бизнес</b><span>опрашивает людей, раскладывает процессы, считает экономию</span></div></div>
+        <div class="role lift"><div class="num">02</div><div><b>ИИ-инженеры</b><span>собирают решения прямо на ваших данных</span></div></div>
+        <div class="role lift"><div class="num">03</div><div><b>ИИ-агенты команды</b><span>тестирование, аналитика и поддержка</span></div></div>
       </div>
     </div>
   </div>
@@ -856,7 +881,7 @@ footer{border-top:1px solid var(--line);padding:36px 0}
       </table>
     </div>
     <div class="swipe">← листайте таблицу →</div>
-    <div class="callout fde">Так сегодня работает мировой рынок: модель <b>forward deployed engineers</b> — инженеры, которые внедряются в бизнес клиента и собирают решения прямо на его данных, — придумана Palantir, а сейчас по ней строят команды OpenAI и другие ведущие ИИ-компании. Мы работаем по этой же модели — в России.</div>
+    <div class="callout fde">Так работают лучшие ИИ-команды мира. Модель называется <b>forward deployed engineers</b>: инженеры приходят в бизнес клиента и собирают решения прямо на его данных. Её придумали в Palantir, сегодня по ней строят команды OpenAI и другие лидеры рынка. Мы работаем так же — в России.</div>
   </div>
 </section>
 
@@ -864,20 +889,20 @@ footer{border-top:1px solid var(--line);padding:36px 0}
   <div class="wrap">
     <div class="sh">
       <div class="eyebrow"><span>09</span>Форматы работы</div>
-      <h2>От аудита до внешнего AI-отдела</h2>
+      <h2>От аудита до внешнего ИИ-отдела</h2>
       <p class="sub">Начинаем с аудита. Дальше — только те проекты, экономику которых вы увидели и утвердили.</p>
     </div>
     <div class="fmt-grid">
       <div class="fmt hl lift">
         <div class="tag">Точка входа</div>
-        <h3>AI-аудит</h3>
+        <h3>ИИ-аудит</h3>
         <div class="price"><b>от 50 000 ₽</b>стоимость зависит от масштаба компании · срок до 3 недель</div>
         <ul>
           <li>Интервью с управленческой командой</li>
           <li>Точка отсчёта: цифры «как есть»</li>
           <li>Карта возможностей со скорингом</li>
           <li>План на 6–12 месяцев с ценами и экономией</li>
-          <li>Работающий прототип к 10-му дню</li>
+          <li>Прототип к 10-му дню — или возврат денег</li>
         </ul>
         <a class="btn btn-a" href="#cta">Записаться на разбор</a>
       </div>
@@ -896,7 +921,7 @@ footer{border-top:1px solid var(--line);padding:36px 0}
       </div>
       <div class="fmt lift">
         <div class="tag">Сопровождение</div>
-        <h3>Внешний AI-отдел</h3>
+        <h3>Внешний ИИ-отдел</h3>
         <div class="price"><b>Ежемесячно</b>вместо найма своей команды</div>
         <ul>
           <li>Поддержка и развитие внедрённых систем</li>
@@ -911,53 +936,19 @@ footer{border-top:1px solid var(--line);padding:36px 0}
   </div>
 </section>
 
-<section class="edu alt" id="training">
-  <div class="wrap edu-grid">
-    <div>
-      <div class="eyebrow"><span>10</span>Обучение</div>
-      <h2>Сначала разберитесь сами</h2>
-      <p class="sub">Самый дорогой способ внедрять ИИ: не понимать, что он умеет. Проводим обучение для собственников и топ-менеджеров: за несколько встреч вы своими руками решаете задачи из собственной недели и понимаете, где ИИ даст деньги именно вам.</p>
-      <a class="btn btn-a" href="#cta" data-topic="edu">Узнать про обучение <span class="ar">→</span></a>
-    </div>
-    <div>
-      <div class="edu-f lift"><div class="num">01</div><b>Личная сессия для собственника</b></div>
-      <div class="edu-f lift"><div class="num">02</div><b>Обучение управленческой команды</b></div>
-      <div class="edu-f lift"><div class="num">03</div><b>Школа AI для бизнеса в Тюмени</b></div>
-    </div>
-  </div>
-</section>
 
-<section id="partners">
-  <div class="wrap">
-    <div class="sh">
-      <div class="eyebrow"><span>11</span>Партнёрам</div>
-      <h2>Работаете с бизнесом? Давайте зарабатывать вместе</h2>
-    </div>
-    <div class="p-grid">
-      <div class="pcard main lift">
-        <div class="tag">Для экспертов</div>
-        <p>Бизнес-тренеры, маркетологи и консультанты любого профиля: если вы уже работаете с собственниками, приводите клиентов на аудит и получайте вознаграждение с каждого внедрения. Вы остаётесь экспертом для клиента, мы берём на себя технологии.</p>
-        <a class="btn btn-a" href="#cta" data-topic="partner">Стать партнёром <span class="ar">→</span></a>
-      </div>
-      <div class="pcard lift">
-        <div class="tag">Для клиентов</div>
-        <p>Внедрили у себя решение, которое может пригодиться коллегам по отрасли? Мы тиражируем его, а вы получаете долю с продаж.</p>
-      </div>
-    </div>
-  </div>
-</section>
 
 <section class="alt" id="faq">
   <div class="wrap faq-grid">
     <div class="faq-side">
-      <div class="eyebrow"><span>12</span>Частые вопросы</div>
+      <div class="eyebrow"><span>10</span>Частые вопросы</div>
       <h2>Про данные, безопасность и «а вдруг не получится»</h2>
       <a class="tg-l" href="https://t.me/ZamkovD" target="_blank" rel="noopener">Не нашли ответ? Спросите в Telegram <span>→</span></a>
     </div>
     <div class="faq-list">
       <details>
         <summary>Наши данные попадут в открытые нейросети?</summary>
-        <p>Нет. Перед стартом подписываем договор о неразглашении (NDA). Работаем в контуре, согласованном с вашей службой безопасности: где требуется — используем модели и инфраструктуру без передачи данных третьим лицам. Какие именно данные нужны для аудита, фиксируем списком заранее, лишнего не запрашиваем.</p>
+        <p>Нет. До того как вы покажете нам хоть что-то, подписываем договор о неразглашении (NDA). Работаем в контуре, согласованном с вашей службой безопасности: где требуется — используем модели и инфраструктуру без передачи данных третьим лицам. Какие именно данные нужны для аудита, фиксируем списком заранее, лишнего не запрашиваем.</p>
       </details>
       <details>
         <summary>У нас бардак в данных. Аудит вообще имеет смысл?</summary>
@@ -970,6 +961,18 @@ footer{border-top:1px solid var(--line);padding:36px 0}
       <details>
         <summary>Сколько это стоит и от чего зависит цена?</summary>
         <p>Аудит — от 50 000 ₽. Цена зависит от масштаба компании: числа процессов, подразделений и систем. Для небольшой компании аудит проходит быстрее и дешевле, для сети или холдинга — глубже. Точную стоимость называем после 30-минутного разбора, до старта, и она фиксируется в договоре.</p>
+      </details>
+      <details>
+        <summary>Сколько времени это займёт у наших руководителей?</summary>
+        <p>Час-два на каждого топ-менеджера — на интервью. Дальше мы сами работаем с данными и исполнителями, а управленческую команду снова собираем на защиту плана.</p>
+      </details>
+      <details>
+        <summary>Вы работаете удалённо или приезжаете?</summary>
+        <p>Приезжаем. Интервью и разбор процессов проводим у вас на месте — так мы видим реальную работу, а не её описание.</p>
+      </details>
+      <details>
+        <summary>А если прототипа к 10-му дню не будет?</summary>
+        <p>Вернём деньги за аудит. Прототип первого проекта на ваших данных — главное обещание аудита, и мы отвечаем за него рублём.</p>
       </details>
       <details>
         <summary>Мы небольшая компания. Нам это подходит?</summary>
@@ -1043,8 +1046,12 @@ footer{border-top:1px solid var(--line);padding:36px 0}
 <footer>
   <div class="wrap foot">
     <a class="logo" href="#top"><span class="mk">AI</span><span>eSoft <b>/ AI</b></span></a>
-    <span>AI-аудит и внедрение — направление eSoft. Создатели <a href="https://colver.pro" target="_blank" rel="noopener">Colver</a>.</span>
+    <span>ИИ-аудит и внедрение — направление eSoft, IT-компании группы «Этажи». Создатели <a href="https://colver.pro" target="_blank" rel="noopener">Colver</a>.</span>
     <span><a href="https://t.me/ZamkovD" target="_blank" rel="noopener">Telegram</a> · © 2026 eSoft</span>
+  </div>
+  <div class="wrap foot foot2">
+    <span>ООО «Е-Софт» · ИНН 7203405541 · ОГРН 1167232093302 · 625033, г. Тюмень, ул. Суходольская, 16</span>
+    <span>Партнёрам: приводите клиентов на аудит и получайте вознаграждение — <a href="https://t.me/ZamkovD" target="_blank" rel="noopener">напишите нам</a></span>
   </div>
 </footer>
 
@@ -1113,7 +1120,7 @@ footer{border-top:1px solid var(--line);padding:36px 0}
 
   /* световое пятно за курсором на карточках */
   if(matchMedia('(hover: hover)').matches && !reduce){
-    $$('.card,.out,.step,.sol,.fmt,.role,.edu-f,.pcard,.ez,.mem').forEach(function(el){ el.classList.add('spot') });
+    $$('.card,.out,.step,.sol,.fmt,.role,.ez,.mem,.fact,.qc').forEach(function(el){ el.classList.add('spot') });
     document.addEventListener('pointermove', function(e){
       var el = e.target.closest && e.target.closest('.spot');
       if(!el) return;
@@ -1123,11 +1130,23 @@ footer{border-top:1px solid var(--line);padding:36px 0}
     }, {passive:true});
   }
 
+  /* цифры в блоке «Почему сейчас» набегают от нуля */
+  function countUp(b){
+    var to = +b.dataset.to, suf = b.dataset.suf || '', t0 = null, dur = 1300;
+    function step(t){
+      if(!t0) t0 = t;
+      var k = Math.min((t - t0) / dur, 1), e = 1 - Math.pow(1 - k, 3);
+      b.innerHTML = Math.round(to * e) + suf;
+      if(k < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
   /* появление блоков при скролле, с каскадом внутри сеток */
   var tl = $('.tl');
   if(!('IntersectionObserver' in window) || reduce){ tl.classList.add('on') }
   else {
-    var els = $$('.sh,.card,.out,.step,.sol,.fmt,.role,.edu-f,.pcard,.ez,.mem,.eco > div,.stepper,.quote,.ten,.callout,.sol-cta,.f-photo,.table-wrap,.faq-list details');
+    var els = $$('.sh,.card,.out,.step,.sol,.fmt,.role,.ez,.mem,.eco > div,.fact,.qc,.turn,.stepper,.quote,.ten,.callout,.sol-cta,.f-photo,.table-wrap,.faq-list details');
     var counts = new Map();
     els.forEach(function(el){
       el.classList.add('rv');
@@ -1141,6 +1160,7 @@ footer{border-top:1px solid var(--line);padding:36px 0}
         var el = en.target;
         io.unobserve(el);
         if(el === tl){ el.classList.add('on'); return }
+        if(el.classList.contains('fact')) countUp(el.querySelector('b'));
         el.classList.add('on');
         el.addEventListener('transitionend', function h(ev){
           if(ev.target !== el || ev.propertyName !== 'opacity') return;
@@ -1154,29 +1174,12 @@ footer{border-top:1px solid var(--line);padding:36px 0}
     io.observe(tl);
   }
 
-  /* форма: кнопки «Обучение» и «Партнёрам» переключают тему заявки */
+  /* форма заявки */
   var TG = 'https://t.me/ZamkovD';
-  var TOPICS = {
-    audit:   {title:'Заявка на разбор',      btn:'Записаться на разбор', head:'Заявка на AI-разбор', note:''},
-    edu:     {title:'Заявка на обучение',    btn:'Узнать про обучение',  head:'Заявка на обучение', note:'Интересует обучение по ИИ для собственника / команды'},
-    partner: {title:'Заявка на партнёрство', btn:'Стать партнёром',      head:'Заявка на партнёрство', note:'Хочу стать партнёром'}
-  };
-  var topic = 'audit', comment = $('#f-comment');
-  function setTopic(t){
-    var prev = TOPICS[topic];
-    topic = t;
-    $('#f-title').textContent = TOPICS[t].title;
-    $('#f-submit').firstChild.nodeValue = TOPICS[t].btn + ' ';
-    /* подставляем подсказку, только если человек сам ничего не написал */
-    if(!comment.value.trim() || comment.value === prev.note) comment.value = TOPICS[t].note;
-  }
-  $$('a[href="#cta"]').forEach(function(a){
-    a.addEventListener('click', function(){ setTopic(a.dataset.topic || 'audit') });
-  });
 
   function leadText(){
     var v = function(id){ return ($('#'+id).value || '').trim() };
-    return TOPICS[topic].head
+    return 'Заявка на ИИ-разбор'
       + '\nИмя: ' + v('f-name')
       + '\nКомпания: ' + v('f-company')
       + '\nДолжность: ' + v('f-role')
