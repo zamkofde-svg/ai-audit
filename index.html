@@ -163,6 +163,9 @@ h1 em{font-style:normal;background:linear-gradient(100deg,var(--acc) 5%,#A6E7FF 
 .lg{display:flex;align-items:center;justify-content:center;min-width:156px;height:60px;padding:0 26px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.025);filter:grayscale(1);opacity:.85;white-space:nowrap;transition:filter .25s,opacity .25s,border-color .25s,background .25s}
 .lg:hover{filter:none;opacity:1;border-color:rgba(92,203,255,.4);background:rgba(92,203,255,.05)}
 .lg img{display:block;max-height:28px;max-width:118px}
+/* цветной логотип в покое приводим к тону ленты, при наведении показываем фирменный цвет */
+.lg img.mono{filter:brightness(0) invert(.8);transition:filter .25s}
+.lg:hover img.mono{filter:none}
 .lg .alt{font-family:var(--f-d);font-weight:700;font-size:15px;letter-spacing:.06em;color:#B9C7E9}
 
 /* STATEMENT */
@@ -592,7 +595,7 @@ footer{border-top:1px solid var(--line);padding:36px 0}
     <div class="trust-mask">
       <div class="trust-row" id="trust-row">
         <div class="trust-set">
-          <div class="lg"><img src="logo/etazhi.png" alt="Этажи" onerror="this.outerHTML='<span class=alt>ЭТАЖИ</span>'"></div>
+          <div class="lg"><img src="logo/etazhi.svg" alt="Этажи" class="mono" onerror="this.outerHTML='<span class=alt>ЭТАЖИ</span>'"></div>
           <div class="lg"><img src="logo/maxim.png" alt="Максим" onerror="this.outerHTML='<span class=alt>МАКСИМ</span>'"></div>
           <div class="lg"><img src="logo/neoni.png" alt="Neoni" onerror="this.outerHTML='<span class=alt>NEONI</span>'"></div>
           <div class="lg"><img src="logo/shodka.png" alt="Сходка" onerror="this.outerHTML='<span class=alt>СХОДКА</span>'"></div>
