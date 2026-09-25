@@ -39,6 +39,7 @@
   --ease:cubic-bezier(.22,.61,.36,1);
 }
 *{margin:0;padding:0;box-sizing:border-box}
+[hidden]{display:none!important}
 html{scroll-behavior:smooth;scroll-padding-top:84px;-webkit-text-size-adjust:100%}
 body{font-family:var(--f-b);background:var(--bg);color:var(--txt);line-height:1.6;font-size:16px;-webkit-font-smoothing:antialiased;overflow-x:clip}
 h1,h2,h3{font-family:var(--f-d);font-weight:700;line-height:1.12;letter-spacing:-.022em}
@@ -252,8 +253,8 @@ h1 em{font-style:normal;background:linear-gradient(100deg,var(--acc) 5%,#A6E7FF 
 /* SOLUTIONS */
 .legend{display:flex;gap:10px 24px;flex-wrap:wrap;margin-top:26px;font-size:13.5px;color:var(--mut)}
 .legend span{display:inline-flex;align-items:center;gap:10px}
-.sol-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:30px}
-@media(max-width:1020px){.sol-grid{grid-template-columns:repeat(2,1fr)}}
+.sol-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:30px}
+@media(max-width:960px){.sol-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:560px){.sol-grid{grid-template-columns:1fr}}
 .sol{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:24px;display:flex;flex-direction:column;gap:12px}
 .sol.live{border-color:rgba(94,230,168,.24)}
@@ -276,6 +277,11 @@ h1 em{font-style:normal;background:linear-gradient(100deg,var(--acc) 5%,#A6E7FF 
 .ask-grid{grid-template-columns:repeat(3,1fr);margin-top:0}
 .ask-grid .sol{padding:22px 24px}
 .ask-grid .sol-top{min-height:0}
+.ask-grid .sol.wide{grid-column:1/-1;display:grid;grid-template-columns:auto 1fr;grid-template-areas:"top h" "p p" "res res";column-gap:16px;border-color:rgba(92,203,255,.28);background:linear-gradient(110deg,rgba(92,203,255,.07),var(--panel) 55%)}
+.sol.wide .sol-top{grid-area:top}.sol.wide h3{grid-area:h;align-self:center}.sol.wide p{grid-area:p;max-width:820px}.sol.wide .res{grid-area:res;margin-top:0}
+@media(max-width:560px){.ask-grid .sol.wide{display:flex}}
+.sol .note{font-size:13.5px;color:var(--mut);padding:10px 12px;border-radius:10px;background:rgba(92,203,255,.06);border:1px solid rgba(92,203,255,.18)}
+.sol .note b{color:var(--txt);font-weight:600}
 @media(max-width:900px){.ask-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:560px){.ask-grid{grid-template-columns:1fr}}
 .sol-cta{margin-top:24px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;padding:24px 28px;border-radius:var(--r);border:1px solid rgba(92,203,255,.3);background:linear-gradient(100deg,rgba(92,203,255,.1),rgba(92,203,255,.02))}
@@ -336,6 +342,7 @@ h1 em{font-style:normal;background:linear-gradient(100deg,var(--acc) 5%,#A6E7FF 
 @media(max-width:900px){.eco{grid-template-columns:1fr 1fr}.eco>.main{grid-column:1/-1}}
 @media(max-width:480px){.eco{grid-template-columns:1fr}}
 .ez-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px}
+.ez-grid:not(:has(> .ez:not([hidden]))){display:none}
 @media(max-width:960px){.ez-grid{grid-template-columns:1fr}}
 .ez{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:26px;display:flex;flex-direction:column;gap:16px}
 .ez-top{display:flex;justify-content:space-between;align-items:center;gap:10px;min-height:24px}
@@ -412,6 +419,17 @@ td.us a{color:var(--acc);text-decoration:underline;text-underline-offset:3px}
 .fmt li{position:relative;padding:7px 0 7px 28px;font-size:14.5px;color:var(--mut)}
 .fmt li::before{content:"";position:absolute;left:0;top:11px;width:17px;height:17px;border-radius:50%;background:rgba(94,230,168,.12) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235EE6A8' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5 9-10'/%3E%3C/svg%3E") center/10px no-repeat}
 .fmt .btn{width:100%}
+
+/* TRAINING */
+.edu-band{padding:0 0 112px}
+@media(max-width:720px){.edu-band{padding-bottom:80px}}
+.edu-box{display:grid;grid-template-columns:1.25fr .75fr;gap:48px;align-items:center;padding:40px 44px;border-radius:22px;border:1px solid var(--line2);background:linear-gradient(120deg,rgba(92,203,255,.08),var(--panel) 60%)}
+.edu-box h2{font-size:clamp(26px,3vw,36px);margin-bottom:14px}
+.edu-box .eyebrow{margin-bottom:14px}
+.edu-side{display:flex;flex-direction:column;gap:22px;align-items:flex-start}
+.edu-pills{display:flex;flex-wrap:wrap;gap:8px}
+.edu-pills span{font-size:13.5px;font-weight:600;padding:7px 14px;border-radius:100px;border:1px solid var(--line2);background:rgba(255,255,255,.03)}
+@media(max-width:900px){.edu-box{grid-template-columns:1fr;gap:28px;padding:30px 24px}.edu-side .btn{width:100%}}
 
 /* FAQ */
 .faq-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:64px;align-items:start}
@@ -691,6 +709,7 @@ footer{border-top:1px solid var(--line);padding:36px 0}
         <div class="sol-top"><span class="st on">Работает</span><span class="prod">Colver</span></div>
         <h3>Контроль коммуникаций</h3>
         <p>Анализируем 100% звонков с клиентами, дальше — встречи и чаты. Руководитель получает не гору аналитики, а очередь задач: где менеджер ошибся, какие возражения звучат и какую сделку нужно спасать прямо сейчас.</p>
+        <p class="note"><b>Для застройщиков:</b> отдельный контроль коммуникаций с агентами. Когда большая часть продаж идёт через риэлторов, именно этот канал обычно никто не контролирует.</p>
         <div class="done many"><span class="dl">Внедрено</span><span>«Этажи»</span><span>4D</span><span>ТИС</span><span>«Стоун»</span><span>«Новая Земля»</span><span>LiveDrive</span><span>Pegas Touristik</span></div>
         <div class="res"><b>Результат:</b> SOS-сигнал по критичным звонкам, возврат «мёртвых» лидов, контроль качества без ручного прослушивания.</div>
       </div>
@@ -711,6 +730,18 @@ footer{border-top:1px solid var(--line);padding:36px 0}
         <div class="sol-top"><span class="st on">Работает</span></div>
         <h3>Чат-боты на входе воронки</h3>
         <p>Бот берёт один этап: квалифицирует обращение и заводит заявку в CRM. Не заменяет сотрудника целиком, снимает с него рутину первого контакта.</p>
+      </div>
+      <div class="sol live lift">
+        <div class="sol-top"><span class="st on">Работает</span></div>
+        <h3>ИИ в маркетинге</h3>
+        <p>Автопилот рекламы, лидогенерация, аналитика эффективности бюджета. Для компаний, которые тратят на маркетинг процент выручки, но не могут сказать, что этот процент принёс.</p>
+        <div class="done"><span class="dl">Внедрено</span><span>«Этажи»</span></div>
+      </div>
+      <div class="sol live lift">
+        <div class="sol-top"><span class="st on">Работает</span></div>
+        <h3>Протоколы встреч</h3>
+        <p>Каждая встреча превращается в протокол по вашему стандарту и задачи с ответственными. Решения не теряются между планёрками, а любую договорённость можно найти через полгода.</p>
+        <div class="done"><span class="dl">Внедрено</span><span>«Этажи»</span></div>
       </div>
     </div>
     <div class="ask-h">По запросу — собираем под вашу задачу</div>
@@ -745,6 +776,12 @@ footer{border-top:1px solid var(--line);padding:36px 0}
         <div class="sol-top"><span class="st ask">По запросу</span></div>
         <h3>Бэк-офис</h3>
         <p>ИИ-сотрудники для HR, юристов, договорной работы. Первичная квалификация кандидатов, проверка документов, подготовка договоров. Человек остаётся на подтверждении.</p>
+      </div>
+      <div class="sol lift wide">
+        <div class="sol-top"><span class="st ask">По запросу</span></div>
+        <h3>Фундамент под ИИ</h3>
+        <p>Собираем данные компании из 1С, CRM, таблиц и учётных систем в одну архитектуру. Настраиваем доступы и инфраструктуру, на которой работают любые ИИ-агенты: наши или ваших разработчиков.</p>
+        <div class="res"><b>Для кого:</b> компании, которые хотят внедрять ИИ системно, а не лоскутами.</div>
       </div>
     </div>
     <div class="sol-cta">
@@ -790,10 +827,10 @@ footer{border-top:1px solid var(--line);padding:36px 0}
       <div><b>Десятки</b><span>ИИ-продуктов в ежедневной работе сети</span></div>
       <div><b>100+</b><span>городов, где работает Colver</span></div>
     </div>
-    <!-- ЗАГЛУШКИ (скрыты атрибутом hidden): заполнить по шаблону «Задача / Что сделали / Результат» (цифра: часы, рубли, конверсия),
-         заменить каждый <i class="sk"> на текст, убрать класс tbd, метку «Готовим» и атрибут hidden у .ez-grid -->
-    <div class="ez-grid" hidden>
-      <article class="ez tbd lift">
+    <!-- КЕЙСЫ: каждая незаполненная карточка скрыта атрибутом hidden, сетка сама прячется, если видимых карточек нет.
+         Чтобы опубликовать кейс: вписать цифру в «Результат» вместо <i class="sk ...">, заменить остальные заглушки текстом и снять hidden с карточки. -->
+    <div class="ez-grid">
+      <article class="ez tbd lift" hidden>
         <div class="ez-top"><span class="dept">Юридический департамент</span><span class="st ask">Готовим</span></div>
         <h3><i class="sk w70"></i></h3>
         <dl>
@@ -802,21 +839,39 @@ footer{border-top:1px solid var(--line);padding:36px 0}
         </dl>
         <div class="ez-res"><span>Результат</span><i class="sk big w50"></i></div>
       </article>
-      <article class="ez tbd lift">
-        <div class="ez-top"><span class="dept"><i class="sk" style="width:120px;margin:0"></i></span><span class="st ask">Готовим</span></div>
-        <h3><i class="sk w70"></i></h3>
+      <article class="ez lift" hidden>
+        <div class="ez-top"><span class="dept">Маркетинг</span><span class="st on">Работает</span></div>
+        <h3>ИИ-автопилот рекламы</h3>
         <dl>
-          <div><dt>Задача</dt><dd><i class="sk"></i><i class="sk w60"></i></dd></div>
-          <div><dt>Что сделали</dt><dd><i class="sk"></i><i class="sk w80"></i></dd></div>
+          <div><dt>Задача</dt><dd>Контекстная реклама для десятков городов съедает время специалистов, а правила сети приходится каждый раз объяснять заново.</dd></div>
+          <div><dt>Что сделали</dt><dd>Агент знает правила «Этажей»: бюджеты, направления, предельную стоимость. Город задаёт только бюджет и направление, дальше агент сам запускает, ведёт и корректирует кампании.</dd></div>
         </dl>
         <div class="ez-res"><span>Результат</span><i class="sk big w50"></i></div>
       </article>
-      <article class="ez tbd lift">
-        <div class="ez-top"><span class="dept"><i class="sk" style="width:120px;margin:0"></i></span><span class="st ask">Готовим</span></div>
-        <h3><i class="sk w70"></i></h3>
+      <article class="ez lift" hidden>
+        <div class="ez-top"><span class="dept">Маркетинг</span><span class="st on">Работает</span></div>
+        <h3>Учёт услуг маркетинга для сети</h3>
         <dl>
-          <div><dt>Задача</dt><dd><i class="sk"></i><i class="sk w60"></i></dd></div>
-          <div><dt>Что сделали</dt><dd><i class="sk"></i><i class="sk w80"></i></dd></div>
+          <div><dt>Задача</dt><dd>Счета городам за услуги маркетинга жили в Google-таблицах, сверка с финансами шла вручную.</dd></div>
+          <div><dt>Что сделали</dt><dd>Единая система: департамент вносит услуги, аккаунт-менеджеры управляют счетами, данные сразу уходят в финансы.</dd></div>
+        </dl>
+        <div class="ez-res"><span>Результат</span><i class="sk big w50"></i></div>
+      </article>
+      <article class="ez lift" hidden>
+        <div class="ez-top"><span class="dept">Маркетинг</span><span class="st on">Работает</span></div>
+        <h3>Корпоративный портал сотрудников</h3>
+        <dl>
+          <div><dt>Задача</dt><dd>Поздравления, мотивация, база знаний и мероприятия были разбросаны по чатам и документам.</dd></div>
+          <div><dt>Что сделали</dt><dd>Одно мини-приложение: автоматические поздравления, магазин баллов, база знаний с ботом, мероприятия.</dd></div>
+        </dl>
+        <div class="ez-res"><span>Результат</span><i class="sk big w50"></i></div>
+      </article>
+      <article class="ez lift" hidden>
+        <div class="ez-top"><span class="dept">Маркетинг</span><span class="st on">Работает</span></div>
+        <h3>Встречи в единую базу знаний</h3>
+        <dl>
+          <div><dt>Задача</dt><dd>Договорённости со встреч терялись, задачи ставились с опозданием или не ставились вовсе.</dd></div>
+          <div><dt>Что сделали</dt><dd>Встречи с любых устройств, включая диктофон, автоматически расшифровываются. Протокол пишется по стандарту компании, задачи с ответственными создаются одной кнопкой, по всей истории встреч работает поиск.</dd></div>
         </dl>
         <div class="ez-res"><span>Результат</span><i class="sk big w50"></i></div>
       </article>
@@ -844,7 +899,7 @@ footer{border-top:1px solid var(--line);padding:36px 0}
         <div class="f-quote">Я не продаю технологии. Я нахожу, где компания теряет деньги, и убираю эту потерю — руками своей команды, с замером до и после.»</div>
       </div>
     </div>
-    <!-- ЗАГЛУШКИ скрыты атрибутом hidden: Пахатаев пришлёт описание; ещё два участника — позже -->
+    <!-- ЗАГЛУШКИ скрыты атрибутом hidden: Пахатаев пришлёт описание; ещё один участник позже -->
     <div class="crew">
       <h3>Кто ещё в команде</h3>
       <div class="crew-grid">
@@ -854,11 +909,11 @@ footer{border-top:1px solid var(--line);padding:36px 0}
           <span class="mr">Руководитель проектного офиса юридического департамента «Этажей»</span>
           <p class="tbd" hidden><i class="sk"></i><i class="sk w70"></i></p>
         </div>
-        <div class="mem tbd lift" hidden>
-          <div class="av">+</div>
-          <b><i class="sk w60"></i></b>
-          <span class="mr"><i class="sk w80"></i></span>
-          <p><i class="sk"></i><i class="sk w70"></i></p>
+        <div class="mem lift">
+          <div class="av">ДС</div>
+          <b>Дмитрий Солоп</b>
+          <span class="mr">Руководитель отдела разработки маркетинга «Этажей»</span>
+          <p>Эксперт по ИИ в маркетинге. Создал ИИ-автопилот рекламы для сети и строит инфраструктуру под ИИ-агентов в маркетинге «Этажей». Подключается к аудиту, когда в карте возможностей есть маркетинг.</p>
         </div>
         <div class="mem tbd lift" hidden>
           <div class="av">+</div>
@@ -943,6 +998,7 @@ footer{border-top:1px solid var(--line);padding:36px 0}
         <div class="price"><b>Ежемесячно</b>вместо найма своей команды</div>
         <ul>
           <li>Поддержка и развитие внедрённых систем</li>
+          <li>Ответственный специалист, который контролирует работу ИИ-агентов и отвечает за результат</li>
           <li>Ежемесячный отчёт по эффекту в деньгах</li>
           <li>Новые проекты дорожной карты</li>
           <li>Обучение ваших сотрудников</li>
@@ -955,6 +1011,22 @@ footer{border-top:1px solid var(--line);padding:36px 0}
 </section>
 
 
+
+<section class="edu-band" id="training">
+  <div class="wrap">
+    <div class="edu-box">
+      <div>
+        <div class="eyebrow">Обучение</div>
+        <h2>Сначала разберитесь сами</h2>
+        <p class="sub">Самый дорогой способ внедрять ИИ: не понимать, что он умеет. Проводим обучение для собственников и топ-менеджеров. За несколько встреч вы своими руками решаете задачи из собственной недели и понимаете, где ИИ даст деньги именно вам.</p>
+      </div>
+      <div class="edu-side">
+        <div class="edu-pills"><span>Личная сессия для собственника</span><span>Обучение управленческой команды</span><span>Школа ИИ для бизнеса</span></div>
+        <a class="btn btn-g" href="#cta" data-prefill="Интересует обучение">Узнать про обучение <span class="ar">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section class="alt" id="faq">
   <div class="wrap faq-grid">
@@ -999,6 +1071,14 @@ footer{border-top:1px solid var(--line);padding:36px 0}
       <details>
         <summary>Вы замените наших сотрудников?</summary>
         <p>Мы убираем рутину, а не людей. Часто результат в том, что та же команда делает больший объём работы. Где выгоднее сократить функцию, покажем это цифрами, решение за вами.</p>
+      </details>
+      <details>
+        <summary>У нас нет своих айтишников. Мы сможем с этим работать?</summary>
+        <p>Да, большинство наших клиентов без своей IT-команды. Мы разворачиваем всё сами, а для ваших сотрудников работа с системой выглядит как привычный интерфейс или чат. Поддержку и доработки берём на себя.</p>
+      </details>
+      <details>
+        <summary>Кто отвечает, если ИИ-агент ошибся?</summary>
+        <p>Мы. В формате сопровождения за агентами закреплён ответственный специалист с нашей стороны: он проверяет их работу и отвечает за результат.</p>
       </details>
       <details>
         <summary>Что если после аудита мы решим ничего не внедрять?</summary>
@@ -1164,7 +1244,7 @@ footer{border-top:1px solid var(--line);padding:36px 0}
   var tl = $('.tl');
   if(!('IntersectionObserver' in window) || reduce){ tl.classList.add('on') }
   else {
-    var els = $$('.sh,.card,.out,.step,.sol,.fmt,.role,.ez,.mem,.eco > div,.fact,.qc,.turn,.stepper,.quote,.ten,.callout,.sol-cta,.f-photo,.table-wrap,.faq-list details');
+    var els = $$('.sh,.card,.out,.step,.sol,.fmt,.role,.ez,.mem,.eco > div,.fact,.qc,.turn,.edu-box,.stepper,.quote,.ten,.callout,.sol-cta,.f-photo,.table-wrap,.faq-list details');
     var counts = new Map();
     els.forEach(function(el){
       el.classList.add('rv');
@@ -1191,6 +1271,14 @@ footer{border-top:1px solid var(--line);padding:36px 0}
     els.forEach(function(el){ io.observe(el) });
     io.observe(tl);
   }
+
+  /* кнопки с готовой подсказкой для поля «Что болит» */
+  $$('[data-prefill]').forEach(function(a){
+    a.addEventListener('click', function(){
+      var c = $('#f-comment');
+      if(!c.value.trim()) c.value = a.dataset.prefill;
+    });
+  });
 
   /* форма заявки */
   var TG = 'https://t.me/ZamkovD';
