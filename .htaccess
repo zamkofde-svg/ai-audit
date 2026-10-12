@@ -1,0 +1,2 @@
+# hide the git metadata that the hosting copy keeps for auto-updates
+RedirectMatch 404 /\.git
