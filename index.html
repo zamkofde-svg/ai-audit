@@ -498,6 +498,24 @@ footer a{color:var(--text)}
 .ez-h b{font-size:21px;font-weight:600;letter-spacing:-.02em}
 .ez-h span{color:var(--text-2);font-size:15px}
 .ez .rs p{margin:6px 0 0;color:var(--text-2);font-size:14px;line-height:1.5}
+
+/* второй ряд цифр в «Почему сейчас» */
+.facts-h{margin:56px 0 20px;font-size:clamp(22px,2.4vw,28px);letter-spacing:-.025em}
+/* одиночный кейс во всю ширину */
+.ez-grid.one{grid-template-columns:1fr}
+/* строка доверия */
+.trustline{display:inline-flex;align-items:center;gap:10px;margin-top:22px;padding:8px 16px;border-radius:980px;background:var(--accent-soft);color:var(--accent-text);font-size:15px;font-weight:500}
+.trustline::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent);flex:none}
+/* методология */
+.steps6{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.steps6 li{padding:28px 26px}
+.steps6 .n{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--accent-soft);color:var(--accent-text);font-weight:600;font-size:15px}
+.steps6 h3{font-size:21px;letter-spacing:-.02em;margin-top:16px}
+.steps6 p{margin-top:8px;color:var(--text-2)}
+.method-note{max-width:820px;margin:36px auto 0;text-align:center;font-size:17px;line-height:1.55;color:var(--text-2)}
+.method-note a{color:var(--accent-text);text-decoration:underline;text-underline-offset:3px}
+@media (max-width:860px){.steps6{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.steps6{grid-template-columns:1fr}.trustline{border-radius:16px;text-align:left}}
 </style>
 <link rel="stylesheet" href="refinement.css?v=20260928-4">
 </head>
@@ -603,6 +621,13 @@ footer a{color:var(--text)}
       <div class="card fact rv"><b>475&nbsp;млрд&nbsp;₽</b><p>эффект от ИИ у Сбера за 2025 год.</p><cite>СберУниверситет, 2026</cite></div>
       <div class="card fact rv"><b>95%</b><p>пилотов генеративного ИИ не дали измеримого эффекта в прибыли.</p><cite>MIT, The GenAI Divide, 2025</cite></div>
     </div>
+    <!-- ДОМ.РФ: «5% решений в продажах» и «+3% к конверсии» ждут сверки с PDF исследования, после сверки добавить сюда и в карточку Colver -->
+    <h3 class="facts-h rv">Девелопмент в России: ИИ уже здесь</h3>
+    <div class="facts">
+      <div class="card fact rv"><b>36%</b><p>строительных компаний уже применяют ИИ. За год доля выросла на 8 процентных пунктов.</p><cite>ДОМ.РФ Технологии, итоги 2024</cite></div>
+      <div class="card fact rv"><b>17%</b><p>цифровых решений для стройки работают на ИИ. Больше всего их в эксплуатации и продажах.</p><cite>ДОМ.РФ × Сколково, 2025</cite></div>
+      <div class="card fact rv"><b>50%+</b><p>девелоперов внедрят ИИ в бизнес-процессы к 2028 году (прогноз).</p><cite>ДОМ.РФ Технологии, 2025</cite></div>
+    </div>
     <div class="quotes">
       <figure class="card quote rv" style="margin:0">
         <h3>Рефлекторное использование ИИ теперь базовое ожидание в Shopify</h3>
@@ -675,6 +700,25 @@ footer a{color:var(--text)}
   </div>
 </section>
 
+<section id="method">
+  <div class="wide">
+    <div class="head rv">
+      <p class="eyebrow">Методология</p>
+      <h2 class="t">Как появляется каждое улучшение</h2>
+      <p class="lead">ИИ не должен ускорять плохой процесс. Сначала убираем лишнее, потом автоматизируем.</p>
+    </div>
+    <ol class="steps6">
+      <li class="card rv"><span class="n">1</span><h3>Найти потерю</h3><p>Ожидание, дубли, ручной ввод.</p></li>
+      <li class="card rv"><span class="n">2</span><h3>Упростить</h3><p>Убрать лишние шаги.</p></li>
+      <li class="card rv"><span class="n">3</span><h3>Встроить ИИ</h3><p>Внутрь процесса, а не рядом с ним.</p></li>
+      <li class="card rv"><span class="n">4</span><h3>Вернуть статус в CRM</h3><p>Результат виден там, где работают люди.</p></li>
+      <li class="card rv"><span class="n">5</span><h3>Измерить эффект</h3><p>Минуты, рубли, конверсия.</p></li>
+      <li class="card rv"><span class="n">6</span><h3>Масштабировать или закрыть</h3><p>Решение принимаем по ROI.</p></li>
+    </ol>
+    <p class="method-note rv">У каждого улучшения есть владелец, метрика и финансовая логика. Если эффекта нет, проект меняем или закрываем до масштабирования. Поэтому у нас нет «тихо умерших пилотов», в отличие от <a href="#why">95% пилотов из исследования MIT</a>.</p>
+  </div>
+</section>
+
 <section class="alt" id="solutions">
   <div class="wide">
     <div class="head rv">
@@ -721,6 +765,10 @@ footer a{color:var(--text)}
         <span class="st on">Работает</span>
         <h3>Чат-боты на входе воронки</h3>
         <p>Бот квалифицирует обращение и заводит заявку в CRM.</p>
+        <div class="foot">
+          <div class="clients"><span class="l">Внедрено</span><span>«Этажи»</span></div>
+          <p class="res"><b>Пример:</b> 54&nbsp;600 диалогов за 30 дней на сайте и Авито, 99% без участия менеджера.</p>
+        </div>
       </article>
       <article class="card sol half">
         <span class="st on">Работает</span>
@@ -777,6 +825,7 @@ footer a{color:var(--text)}
       <p class="eyebrow">Полигон «Этажи»</p>
       <h2 class="t">Сначала внедрили у себя. Внутри федеральной компании</h2>
       <p class="lead">«Этажи» наш полигон: решения проходят проверку на реальных процессах федеральной сети, прежде чем мы предлагаем их клиентам.</p>
+      <p class="trustline">«Этажи» представили эту систему на Международном жилищном конгрессе 2026</p>
     </div>
     <div class="eco">
       <div class="card rv"><b>Сотни миллионов&nbsp;₽</b><span>экономии «Этажей» от наших продуктов</span></div>
@@ -784,6 +833,10 @@ footer a{color:var(--text)}
       <div class="card rv"><b>100+</b><span>городов работают с Colver</span></div>
     </div>
     <!-- КЕЙСЫ «Этажей». Незаполненные карточки скрыты атрибутом hidden: чтобы опубликовать, вписать «Результат» (цифру в <b>, пояснение в <p>) и снять hidden. Сетка прячется сама, пока в ней нет видимых карточек. -->
+    <div class="ez-h rv"><b>Продажи</b><span>ИИ-менеджер отвечает клиентам на сайте и на Авито круглосуточно</span></div>
+    <div class="ez-grid one">
+      <article class="card ez rv"><div class="top"><span>Продажи</span><span>Работает</span></div><h3>Colver Agent: ИИ-менеджер на входе воронки</h3><dl><dt>Задача</dt><dd>Клиент пишет на сайт или на Авито и ждёт. Пока менеджер освободится, клиент уходит к тому, кто ответил первым. В сети 300+ городов обращения идут круглосуточно, и вручную держать скорость ответа невозможно.</dd><dt>Что сделали</dt><dd>ИИ-агент отвечает в чате на сайте «Этажей» и на Авито за секунды, в любое время суток. Ведёт диалог и выясняет задачу клиента. Менеджер получает тёплого клиента с контекстом в CRM, а не голый контакт.</dd></dl><div class="rs"><span>Результат</span><b>54&nbsp;600 диалогов за 30 дней</b><p>99,24% обработано без участия человека. Скорость ответа в первые минуты главный фактор конверсии обращения в заявку.</p></div></article>
+    </div>
     <div class="ez-h rv"><b>Юридический департамент</b><span>четыре ИИ-системы на реальных сделках: 9,4&nbsp;млн&nbsp;₽ экономии в год уже сейчас и около 800 часов юристов в месяц</span></div>
     <div class="ez-grid">
       <article class="card ez rv"><div class="top"><span>Юридический департамент</span><span>Работает</span></div><h3>Автозадаток</h3><dl><dt>Задача</dt><dd>Договоров задатка всё больше, и каждый юрист собирал вручную с нуля. Долго, а ошибки доходили до Росреестра.</dd><dt>Что сделали</dt><dd>ИИ-агент сканирует паспорта и выписки ЕГРН, запрашивает Росреестр и собирает проект договора. Юристу остаётся проверить, неполные пакеты документов отсекаются заранее.</dd></dl><div class="rs"><span>Результат</span><b>43 → 19 минут</b><p>на договор задатка. Около 2&nbsp;000 договоров в месяц в 20+ городах, 4,0&nbsp;млн&nbsp;₽ экономии в год.</p></div></article>
