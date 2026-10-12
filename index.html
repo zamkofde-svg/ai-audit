@@ -514,8 +514,13 @@ footer a{color:var(--text)}
 .steps6 p{margin-top:8px;color:var(--text-2)}
 .method-note{max-width:820px;margin:36px auto 0;text-align:center;font-size:17px;line-height:1.55;color:var(--text-2)}
 .method-note a{color:var(--accent-text);text-decoration:underline;text-underline-offset:3px}
-@media (max-width:860px){.steps6{grid-template-columns:repeat(2,1fr)}}
-@media (max-width:560px){.steps6{grid-template-columns:1fr}.trustline{border-radius:16px;text-align:left}}
+.steps6.five{grid-template-columns:repeat(5,1fr);gap:16px}
+.steps6.five li{padding:24px 20px}
+.steps6.five h3{font-size:19px;hyphens:auto;overflow-wrap:anywhere}
+.steps6.five p{font-size:15px}
+@media (max-width:1040px){.steps6.five{grid-template-columns:repeat(6,1fr)}.steps6.five li{grid-column:span 2}.steps6.five li:nth-child(n+4){grid-column:span 3}}
+@media (max-width:860px){.steps6,.steps6.five{grid-template-columns:repeat(2,1fr)}.steps6.five li,.steps6.five li:nth-child(n+4){grid-column:auto}.steps6.five li:last-child{grid-column:1/-1}}
+@media (max-width:560px){.steps6,.steps6.five{grid-template-columns:1fr}.steps6.five li:last-child{grid-column:auto}.trustline{border-radius:16px;text-align:left}}
 
 /* экспресс-разбор: тот же блок, что «Обучение», но над тарифами */
 .edu.express{margin:0 0 20px;background:var(--accent-soft)}
@@ -710,13 +715,12 @@ footer a{color:var(--text)}
       <h2 class="t">Как появляется каждое улучшение</h2>
       <p class="lead">ИИ не должен ускорять плохой процесс. Сначала убираем лишнее, потом автоматизируем.</p>
     </div>
-    <ol class="steps6">
+    <ol class="steps6 five">
       <li class="card rv"><span class="n">1</span><h3>Найти потерю</h3><p>Ожидание, дубли, ручной ввод.</p></li>
       <li class="card rv"><span class="n">2</span><h3>Упростить</h3><p>Убрать лишние шаги.</p></li>
       <li class="card rv"><span class="n">3</span><h3>Встроить ИИ</h3><p>Внутрь процесса, а не рядом с ним.</p></li>
-      <li class="card rv"><span class="n">4</span><h3>Записать результат в CRM</h3><p>Сотрудник видит итог работы ИИ в привычной системе, а не в отдельном сервисе.</p></li>
-      <li class="card rv"><span class="n">5</span><h3>Измерить эффект</h3><p>Минуты, рубли, конверсия.</p></li>
-      <li class="card rv"><span class="n">6</span><h3>Масштабировать или закрыть</h3><p>Решение принимаем по ROI.</p></li>
+      <li class="card rv"><span class="n">4</span><h3>Измерить эффект</h3><p>Минуты, рубли, конверсия.</p></li>
+      <li class="card rv"><span class="n">5</span><h3>Масштабировать или закрыть</h3><p>Решение принимаем по ROI.</p></li>
     </ol>
     <p class="method-note rv">У каждого улучшения есть владелец, метрика и финансовая логика. Если эффекта нет, проект меняем или закрываем до масштабирования. Поэтому у нас нет «тихо умерших пилотов», в отличие от <a href="#why">95% пилотов из исследования MIT</a>.</p>
   </div>
