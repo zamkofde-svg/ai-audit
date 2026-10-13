@@ -524,6 +524,12 @@ footer a{color:var(--text)}
 
 /* экспресс-разбор: тот же блок, что «Обучение», но над тарифами */
 .edu.express{margin:0 0 20px;background:var(--accent-soft)}
+
+/* форма: поле-ловушка от ботов и состояния блока результата */
+.hp{position:absolute!important;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none}
+.okbox-act{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+.okbox.sent #f-copy,.okbox.sent .okbox-act{display:none}
+#f-submit[disabled]{opacity:.6;cursor:progress}
 </style>
 <link rel="stylesheet" href="refinement.css?v=20260928-4">
 </head>
@@ -1067,13 +1073,14 @@ footer a{color:var(--text)}
         <label for="f-comment">Что болит <span class="req">(по желанию)</span></label>
         <textarea id="f-comment" name="comment" rows="3" placeholder="Пара слов о задаче"></textarea>
       </div>
-      <button class="btn" type="submit">Записаться на разбор</button>
+      <input class="hp" type="text" name="website" id="f-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <button class="btn" type="submit" id="f-submit">Записаться на разбор</button>
       <p class="fine">Данные никому не передаём.</p>
       <div class="okbox" id="f-ok" aria-live="polite">
-        <b id="f-ok-t">Telegram открыт в соседней вкладке.</b>
-        <span id="f-ok-hint">Текст заявки скопирован, вставьте его в чат и отправьте.</span>
+        <b id="f-ok-t">Заявка отправлена.</b>
+        <span id="f-ok-hint">Ответим в течение рабочего дня.</span>
         <textarea id="f-copy" rows="6" readonly aria-label="Текст заявки"></textarea>
-        <button type="button" class="btn ghost sm" id="f-copy-btn">Скопировать текст заявки</button>
+        <span class="okbox-act"><button type="button" class="btn ghost sm" id="f-copy-btn">Скопировать текст заявки</button><a class="btn sm" id="f-tg" href="https://t.me/ZamkovD" target="_blank" rel="noopener">Открыть Telegram</a></span>
       </div>
     </form>
   </div>
@@ -1201,7 +1208,7 @@ footer a{color:var(--text)}
     });
   });
 
-  /* форма заявки: собираем текст и открываем Telegram */
+  /* форма заявки: отправляем на сервер (lead.php), он пересылает её в Telegram */
   var TG = 'https://t.me/ZamkovD';
   var form = $('#lead-form');
   function val(id){ return ($('#' + id).value || '').trim() }
@@ -1230,23 +1237,42 @@ footer a{color:var(--text)}
   ['f-name', 'f-phone'].forEach(function(id){
     $('#' + id).addEventListener('blur', function(){ if($('#' + id).getAttribute('aria-invalid') === 'true') check(id === 'f-name' ? 'fld-name' : 'fld-phone', id) });
   });
+  var btn = $('#f-submit'), box = $('#f-ok'), sending = false;
+  function showSent(){
+    box.classList.add('show', 'sent');
+    $('#f-ok-t').textContent = 'Заявка отправлена.';
+    $('#f-ok-hint').textContent = 'Ответим в течение рабочего дня.';
+    form.reset();
+  }
+  /* запасной путь: сервер недоступен, заявку можно отправить в Telegram вручную */
+  function showFallback(txt){
+    box.classList.remove('sent');
+    box.classList.add('show');
+    $('#f-copy').value = txt;
+    $('#f-ok-t').textContent = 'Не получилось отправить автоматически.';
+    $('#f-ok-hint').textContent = 'Скопируйте текст заявки и отправьте его нам в Telegram.';
+  }
   form.addEventListener('submit', function(e){
     e.preventDefault();
+    if(sending) return;
     var a = check('fld-name', 'f-name'), b = check('fld-phone', 'f-phone');
     if(!a){ $('#f-name').focus(); return }
     if(!b){ $('#f-phone').focus(); return }
     var txt = leadText();
-    /* без 'noopener' в параметрах: с ним window.open всегда возвращает null */
-    var win = window.open(TG, '_blank');
-    if(win) try { win.opener = null } catch(e){}
-    $('#f-copy').value = txt;
-    $('#f-ok').classList.add('show');
-    $('#f-ok-t').textContent = win ? 'Telegram открыт в соседней вкладке.' : 'Откройте Telegram: t.me/ZamkovD';
-    copyText(txt).then(function(ok){
-      $('#f-ok-hint').textContent = ok
-        ? 'Текст заявки скопирован, вставьте его в чат и отправьте.'
-        : 'Скопируйте текст заявки ниже и отправьте его в чат.';
-    });
+    var data = {name: val('f-name'), company: val('f-company'), role: val('f-role'), contact: val('f-phone'), comment: val('f-comment'), website: val('f-hp')};
+    var label = btn.textContent;
+    sending = true; btn.disabled = true; btn.textContent = 'Отправляем…';
+    var ctl = window.AbortController ? new AbortController() : null;
+    var timer = setTimeout(function(){ if(ctl) ctl.abort() }, 12000);
+    fetch('lead.php', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(data), signal: ctl ? ctl.signal : undefined})
+      .then(function(r){ return r.json().then(function(j){ return r.ok && j && j.ok === true }) })
+      .catch(function(){ return false })
+      .then(function(ok){
+        clearTimeout(timer);
+        sending = false; btn.disabled = false; btn.textContent = label;
+        if(ok) showSent(); else showFallback(txt);
+        box.scrollIntoView({block: 'nearest', behavior: 'smooth'});
+      });
   });
   $('#f-copy-btn').addEventListener('click', function(){
     var btn = this;

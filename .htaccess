@@ -1,2 +1,4 @@
 # hide the git metadata that the hosting copy keeps for auto-updates
 RedirectMatch 404 /\.git
+# the bot setup script runs from the hosting console only
+RedirectMatch 404 /bot-setup\.php
