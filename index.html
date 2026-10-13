@@ -530,6 +530,16 @@ footer a{color:var(--text)}
 .okbox-act{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
 .okbox.sent #f-copy,.okbox.sent .okbox-act{display:none}
 #f-submit[disabled]{opacity:.6;cursor:progress}
+
+/* телефон: читаемая надпись над заголовком и шапка, которая помещается на 320px */
+@media (max-width:560px){.hero p.eyebrow{font-size:12.5px}}
+@media (max-width:860px){.wide.case{grid-template-columns:minmax(0,1fr)}.path li{grid-template-columns:28px minmax(0,1fr) auto}}
+@media (max-width:360px){
+  .card.path{padding:28px 20px}
+  .path li{font-size:16px;gap:10px;overflow-wrap:anywhere}
+  #nav .nav-in{padding-left:12px;padding-right:12px;gap:8px}
+  #nav .nav-r .btn{padding-left:12px;padding-right:12px}
+}
 </style>
 <link rel="stylesheet" href="refinement.css?v=20260928-4">
 </head>
