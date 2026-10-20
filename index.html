@@ -551,6 +551,9 @@ footer a{color:var(--text)}
   .ez-more>dl{margin-top:4px}
   .ez-more:not([open])+.rs{margin-top:8px}
 }
+
+/* команда: три карточки в ряд на широком экране */
+@media (min-width:900px){.crew-grid{grid-template-columns:repeat(3,1fr)}}
 </style>
 <link rel="stylesheet" href="refinement.css?v=20260928-4">
 </head>
@@ -893,6 +896,7 @@ footer a{color:var(--text)}
     <div class="crew">
       <h3 class="rv">Кто ещё в команде</h3>
       <div class="crew-grid">
+        <div class="mem rv"><div class="av" aria-hidden="true">АЩ</div><b>Антон Щукин</b><span class="mr">IT-директор «Этажей»</span></div>
         <div class="mem rv"><div class="av" aria-hidden="true">ДП</div><b>Данил Пахатаев</b><span class="mr">Руководитель проектного офиса юридического департамента «Этажей»</span></div>
         <div class="mem rv"><div class="av" aria-hidden="true">ДС</div><b>Дмитрий Солоп</b><span class="mr">Руководитель отдела разработки маркетинга «Этажей»</span><p>Создал ИИ-автопилот рекламы для 60+ городов сети. Подключается к аудиту, когда в карте возможностей есть маркетинг.</p></div>
       </div>
